@@ -1,0 +1,37 @@
+﻿<?xml version="1.0"?>
+<DataSource>
+	<DataClass id="BaseInfo" name="常用数据">
+		<Value id="HospitalName" name="医院名称" value="" inputtype="3" sourcetype="-1" dofun="dllname@classname" dosql=""></Value>
+		<Value id="HospitalCode" name="医院编码" value="" inputtype="3" sourcetype="-1" dofun="dllname@classname" dosql=""></Value>
+	</DataClass>
+	<DataClass id="PatientInfo" name="病人数据">
+		<Value id="PatientNum" name="住院号" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="InTimes" name="住院次数" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="RegNum" name="门诊号" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="CardNum" name="诊疗卡" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="CaseNum" name="病历号" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		
+		<Value id="PatientName" name="姓名" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientSex" name="性别" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientAge" name="年龄" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientDept" name="科室" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="BedNo" name="床号" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientNation" name="民族" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientMrriage" name="婚姻" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientHomeplace" name="出生地" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientIdentitycard" name="身份证号码" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientPhone" name="电话" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientLinkMan" name="联系人姓名" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientLMrapport" name="联系人关系" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientLMPhone" name="联系人电话" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		
+		<Value id="RegisterDate" name="入院日期" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="RegisterType" name="入院类型" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="PatientType" name="病人类型" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="SocityNumber" name="医保证号" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="RegisterDept" name="入院科室" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="RegisterCase" name="入院情况" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="RegisterDiag" name="入院诊断" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+		<Value id="RegisterDoctor" name="住院医生" value="" inputtype="3" sourcetype="0" dofun="dllname@classname" dosql=""></Value>
+	</DataClass>
+</DataSource>

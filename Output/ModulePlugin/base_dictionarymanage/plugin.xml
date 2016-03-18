@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <section name="plugin" type="EFWCoreLib.CoreFrame.Plugin.PluginSectionHandler, EFWCoreLib" />
+  </configSections>
+  <unity>
+    <container>
+    </container>
+  </unity>
+  <plugin name="base_dictionarymanage" version="1.0" title="通用字典管理" author="kakake" plugintype="Winform" defaultdbkey="SQL2005" defaultcachekey="Cache Manager" isentry="1">
+    <baseinfo>
+      <data key="introduction" value="常用字典通过此界面进行维护，比如性别、民族等" />
+      <data key="updaterecord" value="" />
+      <data key="headpic" value="/ModulePlugin/efwplus_website/headpic/default.png" />
+      <data key="StartItem" value="" />
+    </baseinfo>
+    <businessinfo>
+      <dll name="base_dictionarymanage.dll" version="1.0" />
+      <dll name="base_dictionarymanage.winform.dll" version="1.0" />
+    </businessinfo>
+    <issue>
+    </issue>
+    <setup>
+    </setup>
+    <menus>
+      <add menuname="通用字典配置" pluginname="base_dictionarymanage" controllername="dictionaryController" viewname="frmGeneralConfiguration" menupath="" memo="" />
+      <add menuname="字典权限设置" pluginname="base_dictionarymanage" controllername="dictionaryController" viewname="frmGroupGeneral" menupath="" memo="" />
+      <add menuname="通用字典管理" pluginname="base_dictionarymanage" controllername="dictionaryController" viewname="frmShowGeneral" menupath="" memo="" />
+    </menus>
+  </plugin>
+</configuration>

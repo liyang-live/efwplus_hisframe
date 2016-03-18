@@ -1,0 +1,4 @@
+Prescription.Controls.PrescriptionControl, Prescription.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+BedCard.Controls.BedCardControl, BedCard.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+EMR.Controls.EmrRecord, EMR.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+CustomDocument.Controls.CustomDocumentControl, CustomDocument.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

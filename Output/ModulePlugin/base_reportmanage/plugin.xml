@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <section name="plugin" type="EFWCoreLib.CoreFrame.Plugin.PluginSectionHandler, EFWCoreLib" />
+  </configSections>
+  <unity>
+    <container>
+    </container>
+  </unity>
+  <plugin name="base_reportmanage" version="1.0" title="统计报表管理" author="kakake" plugintype="Winform" defaultdbkey="SQL2005" defaultcachekey="Cache Manager" isentry="1">
+    <baseinfo>
+      <data key="introduction" value="一些常用的报表可以快速创建" />
+      <data key="updaterecord" value="" />
+      <data key="headpic" value="/ModulePlugin/efwplus_website/headpic/default.png" />
+      <data key="StartItem" value="" />
+    </baseinfo>
+    <businessinfo>
+      <dll name="base_reportmanage.dll" version="1.0" />
+      <dll name="base_reportmanage.winform.dll" version="1.0" />
+    </businessinfo>
+    <issue>
+    </issue>
+    <setup>
+    </setup>
+    <menus>
+      <add menuname="报表参数配置" pluginname="base_reportmanage" controllername="reportController" viewname="frmReportConfiguration" menupath="" memo="" />
+      <add menuname="报表权限设置" pluginname="base_reportmanage" controllername="reportController" viewname="frmGroupReport" menupath="" memo="" />
+      <add menuname="查看统计报表" pluginname="base_reportmanage" controllername="reportController" viewname="frmShowReport" menupath="" memo="" />
+    </menus>
+  </plugin>
+</configuration>

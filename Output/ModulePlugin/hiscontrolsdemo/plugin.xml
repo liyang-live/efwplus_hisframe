@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <section name="plugin" type="EFWCoreLib.CoreFrame.Plugin.PluginSectionHandler, EFWCoreLib" />
+  </configSections>
+  <unity>
+    <container>
+    </container>
+  </unity>
+  <plugin name="hiscontrolsdemo" version="1.0" title="HIS业务控件" author="kakake" plugintype="Winform" defaultdbkey="SQL2005" defaultcachekey="Cache Manager" isentry="1">
+    <baseinfo>
+      <data key="introduction" value="HIS常用控件" />
+      <data key="updaterecord" value="" />
+      <data key="headpic" value="/ModulePlugin/efwplus_website/headpic/default.png" />
+      <data key="StartItem" value="" />
+    </baseinfo>
+    <businessinfo>
+      <dll name="his_controlsdemo.dll" version="1.0" />
+    </businessinfo>
+    <issue>
+    </issue>
+    <setup>
+    </setup>
+    <menus>
+      <add menuname="床头卡" pluginname="hiscontrolsdemo" controllername="controlsdemoController" viewname="FrmBedCard" menupath="" memo="" />
+      <add menuname="病历控件" pluginname="hiscontrolsdemo" controllername="controlsdemoController" viewname="FrmEmrRecord" menupath="" memo="" />
+      <add menuname="病历模板" pluginname="hiscontrolsdemo" controllername="controlsdemoController" viewname="FrmEmrRecord2" menupath="" memo="" />
+      <add menuname="病历书写" pluginname="hiscontrolsdemo" controllername="controlsdemoController" viewname="FrmEmrRecord3" menupath="" memo="" />
+      <add menuname="电子处方" pluginname="hiscontrolsdemo" controllername="controlsdemoController" viewname="FrmPrescription" menupath="" memo="" />
+      <add menuname="自定义表单" pluginname="hiscontrolsdemo" controllername="controlsdemoController" viewname="FrmCustomDocument" menupath="" memo="" />
+    </menus>
+  </plugin>
+</configuration>

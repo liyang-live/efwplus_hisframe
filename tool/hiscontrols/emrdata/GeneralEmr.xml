@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<KBLibrary>
+<ParagraphTemplate>
+	<templateNode id="template_ryjl" name="入院记录">
+		<templatePara id="template_ryjl_zs" name="主诉：">剖宫产后3+年，停经38+1周，要求入院剖宫产。</templatePara>
+		<templatePara id="template_ryjl_zs" name="现病史：">孕妇自诉平素月经规律，5/30天,末次月经2015年01月19日，预产期2015年10月26日；停经1+月出现恶心、呕吐等早孕反应，孕早期无流感、风疹、肝炎等感染，2015年03月12日行B超检查确诊宫内妊娠约7周；孕4+个月开始自觉胎动，活跃并持续至今；孕期无先兆流产、先兆早产情况；孕期无下肢浮肿，无头晕、眼花、视物模糊、多饮、多食、多尿等不适。孕期在本院产检9次，首诊血压103/61mmHg，产检未发现明显异常。现停经38+1周，今无腹胀、腹痛，无阴道流血、流液，无恶心、呕吐、腹泻，无畏寒、发热及其他不适，于今日14:34步行入院要求明日剖宫产终止妊娠。孕妇近期精神、胃纳正常，大小便正常，自觉胎动正常。</templatePara>
+		<templatePara id="template_ryjl_zs" name="既往史：">2011年11月剖宫产1次，术后恢复好。自诉乙肝病毒携带多年，否认“结核”等传染病史，否认“高血压、肾炎、糖尿病”病史，无外伤史，否认食物药物过敏史，否认长期服用镇静药、激素、避孕药等，否认接触大量放射线和其他有害物质史，按时预防接种，否认输血史及输注血液制品史。</templatePara>
+		<templatePara id="template_ryjl_zs" name="个人史：">生于原籍，否认疫区疫水接触史，无烟酒嗜好。</templatePara>
+		<templatePara id="template_ryjl_zs" name="月经史:">14岁5/30天,末次月经为2015年01月19日，经量适中，轻痛经史。</templatePara>
+		<templatePara id="template_ryjl_zs" name="婚育史：">已婚，其爱人身体健康。孕2产1，2011年12月因“胎膜早破”足月剖宫产1女婴，2.7kg，健存。</templatePara>
+		<templatePara id="template_ryjl_zs" name="家族史：">否认家族性遗传病病史，否认家族中有高血压、糖尿病病史及肝炎、结核等传染病史。</templatePara>
+		<templatePara id="template_ryjl_zs" name="体 格 检 查">体温36.9℃，呼吸20次/分，脉搏82次/分，血压128/75mmHg，身高168cm，体重80.5kg。发育正常，营养中等，自动体位，神志清楚，语言清晰，查体合作。皮肤无黄染及出血点，浅表淋巴结无肿大。头颅无畸形，五官端正，眼脸无水肿，巩膜无黄染，瞳孔等大等圆，对光反射正常。鼻唇沟对称，无鼻翼扇动，外耳道无脓性分泌物，口唇无发绀，咽部无充血，双侧扁桃体不大。颈软，颈静脉无怒张，气管居中，甲状腺轻度肿大。胸廓对称，无畸形。乳房发育可，乳头凸。呼吸运动自如，双侧语颤正常，双肺叩诊清音，呼吸音清晰，双肺未闻及干、湿啰音及哮鸣音。心尖搏动位于左锁骨中线第5肋间，心前区未触及震颤，心脏浊音界无扩大，心率82次/分，律齐，各瓣膜听诊区无病理性杂音。下腹部膨隆，呈孕足月腹型，腹部无压痛及反跳痛，耻骨联合上3横指见一横向陈旧性手术瘢痕，长约15cm，愈合情况良好，肝、脾肋下未触及，胆囊区无压痛及叩击痛，未触及包块，无移动性浊音，双肾区无叩击痛，肠鸣音正常。肛门无异常。脊柱及四肢无畸形，活动自如，关节无红肿，双下肢水肿（-）。双侧膝反射正常，未引出病理反射。</templatePara>
+		<templatePara id="template_ryjl_zs" name="产 科 检 查">宫高34cm，腹围103cm，胎方位枕右前，胎心音142次/分，胎先露头，未衔接，跨耻征阴性，未触及宫缩。阴检：宫颈消退70%，软，居中，宫口开0cm，胎膜未破，先露高低S-3。宫颈评分5分。骶骨形态中弧形，骶骨岬趋势不突，骶尾关节不突，尾骨活动，两侧坐骨棘不突，坐骨切迹可容两指。骨盆外测量径线分别为：25cm、28cm、20cm、9cm。胎儿体重估计3500g。</templatePara>
+		<templatePara id="template_ryjl_zs" name="辅 助 检 查">入院急诊B超：胎位：ROP。BPD93mm，HC327mm，AC332mm，FL72mm。羊水：最大径线37mm，羊水指数119mm。胎盘：位于子宫后壁，厚37mm，成熟度约II度。胎心率147次/分，孕妇子宫下段前壁肌层最薄处厚约2.8mm。急诊心电图：窦性心律，正常心电图。</templatePara>
+		<templatePara id="template_ryjl_zs" name="初步诊断：">1.孕2产1宫内妊娠38+1周枕右前单活胎</templatePara>
+	</templateNode>
+	<templateNode id="template_scbcjl" name="首次病程记录"></templateNode>
+	<templateNode id="template_rcbcjl" name="日常病程记录"></templateNode>
+	<templateNode id="template_sjyscfjl" name="上级医师查房记录"></templateNode>
+	<templateNode id="template_jdxj" name="阶段小结"></templateNode>
+	<templateNode id="template_jiaobanjl" name="交班记录"></templateNode>
+	<templateNode id="template_jiebanjl" name="接班记录"></templateNode>
+	<templateNode id="template_qhzjl" name="请会诊记录"></templateNode>
+	<templateNode id="template_hzjl" name="会诊记录"></templateNode>
+	<templateNode id="template_zkjl" name="转科记录"></templateNode>
+	<templateNode id="template_jsjl" name="接收记录"></templateNode>
+	<templateNode id="template_qjjl" name="抢救记录"></templateNode>
+	<templateNode id="template_xqtljl" name="术前讨论记录"></templateNode>
+	<templateNode id="template_mzjl" name="麻醉记录"></templateNode>
+	<templateNode id="template_sxjl" name="手术记录"></templateNode>
+	<templateNode id="template_shbcjl" name="术后病程记录"></templateNode>
+	<templateNode id="template_shsjcfjl" name="术后上级查房记录"></templateNode>
+	<templateNode id="template_swjl" name="死亡记录"></templateNode>
+	<templateNode id="template_swtljl" name="死亡讨论记录"></templateNode>
+	<templateNode id="template_cyjl" name="出院记录"></templateNode>
+</ParagraphTemplate>
+<EMRTemplate>
+	<deptClass id="001" name="产科">
+		<templateNode id="template_ryjl" name="入院记录">
+			<templateFull name="入院记录01" filepath="emrdata\EMRTemplate\产科病历\01入院记录.bak"></templateFull>
+		</templateNode>
+		<templateNode id="template_scbcjl" name="首次病程记录">
+			<templateFull name="首次病程记录01" filepath="emrdata\EMRTemplate\产科病历\02首次病程记录.bak"></templateFull>
+		</templateNode>
+		<templateNode id="template_rcbcjl" name="日常病程记录">
+			<templateFull name="日常病程记录01" filepath="emrdata\EMRTemplate\产科病历\02首次病程记录.bak"></templateFull>
+		</templateNode>
+		<templateNode id="template_sjyscfjl" name="上级医师查房记录"></templateNode>
+		<templateNode id="template_jdxj" name="阶段小结"></templateNode>
+		<templateNode id="template_jiaobanjl" name="交班记录"></templateNode>
+		<templateNode id="template_jiebanjl" name="接班记录"></templateNode>
+		<templateNode id="template_qhzjl" name="请会诊记录"></templateNode>
+		<templateNode id="template_hzjl" name="会诊记录"></templateNode>
+		<templateNode id="template_zkjl" name="转科记录"></templateNode>
+		<templateNode id="template_jsjl" name="接收记录"></templateNode>
+		<templateNode id="template_qjjl" name="抢救记录"></templateNode>
+		<templateNode id="template_xqtljl" name="术前讨论记录"></templateNode>
+		<templateNode id="template_mzjl" name="麻醉记录"></templateNode>
+		<templateNode id="template_sxjl" name="手术记录"></templateNode>
+		<templateNode id="template_shbcjl" name="术后病程记录"></templateNode>
+		<templateNode id="template_shsjcfjl" name="术后上级查房记录"></templateNode>
+		<templateNode id="template_swjl" name="死亡记录"></templateNode>
+		<templateNode id="template_swtljl" name="死亡讨论记录"></templateNode>
+		<templateNode id="template_cyjl" name="出院记录"></templateNode>
+	</deptClass>
+	<deptClass id="003" name="儿科"></deptClass>
+	<deptClass id="004" name="新生儿科"></deptClass>
+	<deptClass id="005" name="妇科"></deptClass>
+	<deptClass id="006" name="内科"></deptClass>
+	<deptClass id="007" name="外科"></deptClass>
+</EMRTemplate>
+</KBLibrary>

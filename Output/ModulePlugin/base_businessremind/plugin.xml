@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <section name="plugin" type="EFWCoreLib.CoreFrame.Plugin.PluginSectionHandler, EFWCoreLib" />
+  </configSections>
+  <unity>
+    <container>
+    </container>
+  </unity>
+  <plugin name="base_businessremind" version="1.0" title="业务消息提醒" author="kakake" plugintype="Winform" defaultdbkey="SQL2005" defaultcachekey="Cache Manager" isentry="1">
+    <baseinfo>
+      <data key="introduction" value="比如：管理员发通知，系统自动提醒操作员查看" />
+      <data key="updaterecord" value="" />
+      <data key="headpic" value="/ModulePlugin/efwplus_website/headpic/default.png" />
+      <data key="StartItem" value="" />
+    </baseinfo>
+    <businessinfo>
+      <dll name="base_businessremind.dll" version="1.0" />
+      <dll name="base_businessremind.winform.dll" version="1.0" />
+    </businessinfo>
+    <issue>
+    </issue>
+    <setup>
+    </setup>
+    <menus>
+      <add menuname="消息类型设置" pluginname="base_businessremind" controllername="messageController" viewname="frmMessageType" menupath="" memo="" />
+      <add menuname="消息历史记录" pluginname="base_businessremind" controllername="messageController" viewname="frmLookMessage" menupath="" memo="" />
+      <add menuname="用户订阅消息" pluginname="base_businessremind" controllername="messageController" viewname="frmMessageSubscribe" menupath="" memo="" />
+    </menus>
+  </plugin>
+</configuration>

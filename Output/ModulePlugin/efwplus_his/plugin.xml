@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <section name="plugin" type="EFWCoreLib.CoreFrame.Plugin.PluginSectionHandler, EFWCoreLib" />
+  </configSections>
+  <unity>
+    <container>
+    </container>
+  </unity>
+  <plugin name="efwplus_his" version="1.0" title="HIS系统" author="kakake" plugintype="Winform" defaultdbkey="SQL2005" defaultcachekey="Cache Manager" isentry="1">
+    <baseinfo>
+      <data key="introduction" value="HIS系统" />
+      <data key="updaterecord" value="" />
+      <data key="headpic" value="/ModulePlugin/efwplus_website/headpic/default.png" />
+      <data key="StartItem" value="" />
+    </baseinfo>
+    <businessinfo>
+      <dll name="his_kernelbusiness.dll" version="1.0" />
+      <dll name="his_basicdata.dll" version="1.0" />
+      <dll name="his_basicdata.winform.dll" version="1.0" />
+      <dll name="his_interface.dll" version="1.0" />
+      <dll name="his_interface.winform.dll" version="1.0" />
+      <dll name="his_mzcharges.dll" version="1.0" />
+      <dll name="his_mzcharges.winform.dll" version="1.0" />
+      <dll name="his_mzdoctor.dll" version="1.0" />
+      <dll name="his_mzdoctor.winform.dll" version="1.0" />
+      <dll name="his_mznurse.dll" version="1.0" />
+      <dll name="his_mznurse.winform.dll" version="1.0" />
+      <dll name="his_ypdrugstore.dll" version="1.0" />
+      <dll name="his_ypdrugstore.winform.dll" version="1.0" />
+      <dll name="his_zycharges.dll" version="1.0" />
+      <dll name="his_zycharges.winform.dll" version="1.0" />
+      <dll name="his_zydoctor.dll" version="1.0" />
+      <dll name="his_zydoctor.winform.dll" version="1.0" />
+      <dll name="his_zyemr.dll" version="1.0" />
+      <dll name="his_zyemr.winform.dll" version="1.0" />
+      <dll name="his_zynurse.dll" version="1.0" />
+      <dll name="his_zynurse.winform.dll" version="1.0" />
+      <dll name="his_zysurgery.dll" version="1.0" />
+      <dll name="his_zysurgery.winform.dll" version="1.0" />
+    </businessinfo>
+    <issue>
+    </issue>
+    <setup>
+    </setup>
+    <menus>
+      <add menuname="书籍管理" pluginname="Books_Winform" controllername="bookController" viewname="" menupath="" memo="" />
+    </menus>
+  </plugin>
+</configuration>
