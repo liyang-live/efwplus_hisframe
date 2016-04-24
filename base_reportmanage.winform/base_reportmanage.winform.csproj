@@ -98,15 +98,11 @@
     <Compile Include="IView\IfrmShowReport.cs" />
     <Compile Include="IView\IfrmUnitData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewForm\frmaddreport.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ViewForm\frmaddreport.cs" />
     <Compile Include="ViewForm\frmaddreport.Designer.cs">
       <DependentUpon>frmaddreport.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewForm\frmeditfield.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ViewForm\frmeditfield.cs" />
     <Compile Include="ViewForm\frmeditfield.Designer.cs">
       <DependentUpon>frmeditfield.cs</DependentUpon>
     </Compile>

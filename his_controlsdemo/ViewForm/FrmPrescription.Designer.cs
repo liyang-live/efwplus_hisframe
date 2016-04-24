@@ -41,7 +41,7 @@
             this.prescriptionControl1.HideColName = null;
             this.prescriptionControl1.IsShowFootText = true;
             this.prescriptionControl1.IsShowToolBar = true;
-            this.prescriptionControl1.LicenseKey = "43Kta5Ib+oNpQOY4lcD49Q==";
+            this.prescriptionControl1.LicenseKey = "";
             this.prescriptionControl1.Location = new System.Drawing.Point(0, 0);
             this.prescriptionControl1.Name = "prescriptionControl1";
             this.prescriptionControl1.PrescriptionStyle = Prescription.Controls.PrescriptionStyle.全部;

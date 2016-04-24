@@ -84,7 +84,7 @@
             this.bedCardControl1.DataSource = null;
             this.bedCardControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bedCardControl1.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.bedCardControl1.LicenseKey = "xjZftkgkO4WG7FlzlbcciA==";
+            this.bedCardControl1.LicenseKey = "";
             this.bedCardControl1.Location = new System.Drawing.Point(0, 25);
             this.bedCardControl1.Name = "bedCardControl1";
             this.bedCardControl1.SelectedBed = null;
@@ -109,7 +109,6 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "FrmBedCard";
             this.Text = "Form2";
-
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

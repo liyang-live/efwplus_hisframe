@@ -19,7 +19,7 @@ namespace TestControls
 
         private void FrmEmrRecord2_Load(object sender, EventArgs e)
         {
-            emrRecord1.InitLoad(new TestEmrTemplateDbHelper(), new EMR.Controls.Action.EmrBindKeyData(1, "001", "儿科", "01", "张医生"));
+            emrRecord1.InitLoad(InvokeController("NewTestEmrTemplateDbHelper") as TestEmrTemplateDbHelper, new EMR.Controls.Action.EmrBindKeyData(1, "001", "儿科", "01", "张医生"));
         }
     }
 }

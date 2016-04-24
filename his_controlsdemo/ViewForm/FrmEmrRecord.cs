@@ -20,7 +20,7 @@ namespace TestControls
         private void Form1_Load(object sender, EventArgs e)
         {
             //new TestEmrDbHelper(),new TestEmrDataSource()
-            emrRecord1.InitLoad(new TestEmrWriteDbHelper());
+            emrRecord1.InitLoad(InvokeController("NewTestEmrWriteDbHelper") as TestEmrWriteDbHelper);
             //emrRecord1.SetPatientEmrData(new EMR.Controls.Action.EmrBindKeyData());
         }
 

@@ -38,7 +38,7 @@ namespace TestControls
             prescriptionControl1.HideColName = new string[] {"Dept_Name"};
             prescriptionControl1.PrescriptionStyle = PrescriptionStyle.西药与中成药;
             //初始化处方控件并加载病人处方数据
-            TestPrescripttionDbHelper presHelper = new TestPrescripttionDbHelper();
+            TestPrescripttionDbHelper presHelper = InvokeController("NewTestPrescripttionDbHelper") as TestPrescripttionDbHelper;
             prescriptionControl1.InitDbHelper(presHelper);
             prescriptionControl1.LoadPatData(1, 101, "儿科", 201, "李医生");
         }

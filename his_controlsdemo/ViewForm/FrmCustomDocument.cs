@@ -25,5 +25,10 @@ namespace TestControls
         {
 
         }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            this.customDocumentControl1.Preview();
+        }
     }
 }

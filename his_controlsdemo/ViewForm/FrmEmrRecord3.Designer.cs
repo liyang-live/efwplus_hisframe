@@ -51,7 +51,7 @@
             this.emrRecord1.EmrTemplateTree = null;
             this.emrRecord1.EmrWriteTree = this.emrWriteTree1;
             this.emrRecord1.IsShowFileBtn = true;
-            this.emrRecord1.LicenseKey = "s2oMqSJx5WcSbtIgxBOZwg==";
+            this.emrRecord1.LicenseKey = null;
             this.emrRecord1.Location = new System.Drawing.Point(252, 0);
             this.emrRecord1.Name = "emrRecord1";
             this.emrRecord1.Size = new System.Drawing.Size(500, 400);

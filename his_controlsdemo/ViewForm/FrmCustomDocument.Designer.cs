@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomDocument));
+            CustomDocument.Controls.DisplayForm displayForm1 = new CustomDocument.Controls.DisplayForm();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -102,6 +103,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(52, 22);
             this.toolStripButton3.Text = "打印";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // customDocumentControl1
             // 
@@ -146,11 +148,24 @@
             this.customDocumentControl1.ContentArea.Name = "ContentArea";
             this.customDocumentControl1.ContentArea.Size = new System.Drawing.Size(559, 794);
             this.customDocumentControl1.ContentArea.TabIndex = 1;
+            displayForm1.DisplayFormName = "A5";
+            displayForm1.LeftMarign = 100;
+            displayForm1.Memo = null;
+            displayForm1.Options = 0;
+            displayForm1.PageHeight = 2100;
+            displayForm1.PageOrientate = 0;
+            displayForm1.PageWidth = 1480;
+            displayForm1.PaperName = null;
+            displayForm1.TopMarign = 100;
+            displayForm1.xPixPermm = 0.3779528F;
+            displayForm1.xScrDPIDiff = 1F;
+            displayForm1.yPixPermm = 0.3779528F;
+            displayForm1.yScrDPIDiff = 1F;
+            this.customDocumentControl1.CustomPageDisplayForm = displayForm1;
             this.customDocumentControl1.LicenseKey = "58RQu8EI9DvYFHb8GMrPnA==";
             this.customDocumentControl1.Location = new System.Drawing.Point(13, 30);
             this.customDocumentControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.customDocumentControl1.Name = "customDocumentControl1";
-            this.customDocumentControl1.PageDisplayForm = null;
             this.customDocumentControl1.SelectBackgroundImageType = CustomDocument.Controls.BackgroundImageType.白色皮肤;
             this.customDocumentControl1.SelectPageType = CustomDocument.Controls.PageType.A5;
             this.customDocumentControl1.Size = new System.Drawing.Size(579, 814);

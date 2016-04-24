@@ -13,10 +13,14 @@ namespace TestControls
     public class TestPrescripttionDbHelper : IPrescripttionDbHelper
     {
         private SqlDbHelper oleDb;
-        public TestPrescripttionDbHelper()
+        public TestPrescripttionDbHelper(string _ConnectionString)
         {
             oleDb = new SqlDbHelper();
-            oleDb.ConnectionString = "Data Source=.;Initial Catalog=EFWDB;User ID=sa;pwd=1;";
+            if (_ConnectionString != null)
+                oleDb.ConnectionString = _ConnectionString;
+            else
+                oleDb.ConnectionString = "Data Source=.;Initial Catalog=EFWDB;User ID=sa;pwd=1;";
+            //oleDb.ConnectionString = @"Data Source=SKY-20150826TVZ\SQLSERVER2008;Initial Catalog=EFWDB;User ID=sa;pwd=1;";
         }
 
         #region IPrescripttionDbHelper 成员

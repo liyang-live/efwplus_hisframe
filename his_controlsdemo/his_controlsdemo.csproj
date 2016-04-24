@@ -61,12 +61,32 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Output\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
+    <Reference Include="EfwControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Output\EfwControls.dll</HintPath>
+    </Reference>
     <Reference Include="EFWCoreLib, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Output\EFWCoreLib.dll</HintPath>
     </Reference>
     <Reference Include="EMR.Controls">
       <HintPath>..\Output\EMR.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="MRecordFirst.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Output\MRecordFirst.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Output\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NSoup, Version=0.7.1.0, Culture=neutral, PublicKeyToken=6d44e53f0a65e802, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Output\NSoup.dll</HintPath>
+    </Reference>
+    <Reference Include="NVelocity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Output\NVelocity.dll</HintPath>
     </Reference>
     <Reference Include="Prescription.Controls">
       <HintPath>..\Output\Prescription.Controls.dll</HintPath>
@@ -80,6 +100,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Temperature.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Output\Temperature.Controls.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\controlsdemoController.cs" />
@@ -98,6 +122,12 @@
     </Compile>
     <Compile Include="ViewForm\FrmBedCard.Designer.cs">
       <DependentUpon>FrmBedCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\FrmCustomControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\FrmCustomControls.Designer.cs">
+      <DependentUpon>FrmCustomControls.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewForm\FrmCustomDocument.cs">
       <SubType>Form</SubType>
@@ -123,11 +153,23 @@
     <Compile Include="ViewForm\FrmEmrRecord3.Designer.cs">
       <DependentUpon>FrmEmrRecord3.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewForm\FrmMRecordFirst.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\FrmMRecordFirst.Designer.cs">
+      <DependentUpon>FrmMRecordFirst.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewForm\FrmPrescription.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewForm\FrmPrescription.Designer.cs">
       <DependentUpon>FrmPrescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\FrmTemperature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\FrmTemperature.Designer.cs">
+      <DependentUpon>FrmTemperature.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +183,9 @@
     <EmbeddedResource Include="ViewForm\FrmBedCard.resx">
       <DependentUpon>FrmBedCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\FrmCustomControls.resx">
+      <DependentUpon>FrmCustomControls.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewForm\FrmCustomDocument.resx">
       <DependentUpon>FrmCustomDocument.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,8 +198,14 @@
     <EmbeddedResource Include="ViewForm\FrmEmrRecord3.resx">
       <DependentUpon>FrmEmrRecord3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\FrmMRecordFirst.resx">
+      <DependentUpon>FrmMRecordFirst.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewForm\FrmPrescription.resx">
       <DependentUpon>FrmPrescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\FrmTemperature.resx">
+      <DependentUpon>FrmTemperature.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

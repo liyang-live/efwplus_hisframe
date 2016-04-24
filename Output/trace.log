@@ -1000,3 +1000,643 @@ Win32 ThreadId:9516
 
 Extended Properties: 
 ----------------------------------------
+----------------------------------------
+Timestamp: 2016-03-21 12:42:04
+
+Message: HandlingInstanceID: 518a628b-4cb7-430e-8e7a-fb4206432527
+An exception of type 'System.BadImageFormatException' occurred and was caught.
+------------------------------------------------------------------------------
+03/21/2016 20:42:04
+Type : System.BadImageFormatException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 未能加载文件或程序集“file:///D:\工作台\efwplus_hisframe\Output\base_businessremind.dll”或它的某一个依赖项。试图加载格式不正确的程序。
+Source : EFWCoreLib
+Help link : 
+FileName : file:///D:\工作台\efwplus_hisframe\Output\base_businessremind.dll
+FusionLog : === 预绑定状态信息 ===
+日志: 用户 = UALG394S3SBEXSU\Administrator
+日志: Where-ref 绑定。位置 = D:\工作台\efwplus_hisframe\Output\base_businessremind.dll
+日志: Appbase = file:///D:/工作台/efwplus_hisframe/Output/
+日志: 初始 PrivatePath = NULL
+调用程序集: (Unknown)。
+===
+日志: 此绑定从 LoadFrom 加载上下文开始。
+警告: 将不在 LoadFrom 上下文中探测本机映像。仅在默认加载上下文中探测本机映像，例如，使用 Assembly.Load()。
+日志: 正在使用应用程序配置文件: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe.Config
+日志: 使用主机配置文件: 
+日志: 使用 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\config\machine.config 的计算机配置文件。
+日志: 尝试下载新的 URL file:///D:/工作台/efwplus_hisframe/Output/base_businessremind.dll。
+错误: 未能完成程序集的安装(hr = 0x8007000b)。探测终止。
+
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void AppStart()
+HResult : -2147024885
+Stack Trace :    在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppStart()
+   在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppGlobal_Init(Object sender, EventArgs e)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-03-21 12:42:04
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 4464
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:7148
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-03-30 02:54:45
+
+Message: HandlingInstanceID: f2700580-17c4-4fbb-b3cf-a2390bbf08cc
+An exception of type 'System.Reflection.ReflectionTypeLoadException' occurred and was caught.
+---------------------------------------------------------------------------------------------
+03/30/2016 10:54:45
+Type : System.Reflection.ReflectionTypeLoadException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+Source : EFWCoreLib
+Help link : 
+Types : System.RuntimeType[]
+LoaderExceptions : System.Exception[]
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void AppStart()
+HResult : -2146232830
+Stack Trace :    在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppStart()
+   在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppGlobal_Init(Object sender, EventArgs e)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-03-30 02:54:45
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 1844
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:4524
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-03-30 02:54:55
+
+Message: HandlingInstanceID: a4a9f81a-3482-49da-8769-0419d5aea393
+An exception of type 'System.Reflection.ReflectionTypeLoadException' occurred and was caught.
+---------------------------------------------------------------------------------------------
+03/30/2016 10:54:55
+Type : System.Reflection.ReflectionTypeLoadException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+Source : EFWCoreLib
+Help link : 
+Types : System.RuntimeType[]
+LoaderExceptions : System.Exception[]
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void AppStart()
+HResult : -2146232830
+Stack Trace :    在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppStart()
+   在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppGlobal_Init(Object sender, EventArgs e)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-03-30 02:54:55
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 7028
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:4780
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-03-30 02:55:26
+
+Message: HandlingInstanceID: 19609b4a-5c7e-47c8-aec9-43a48bd969d0
+An exception of type 'System.Reflection.ReflectionTypeLoadException' occurred and was caught.
+---------------------------------------------------------------------------------------------
+03/30/2016 10:55:26
+Type : System.Reflection.ReflectionTypeLoadException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+Source : EFWCoreLib
+Help link : 
+Types : System.RuntimeType[]
+LoaderExceptions : System.Exception[]
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void AppStart()
+HResult : -2146232830
+Stack Trace :    在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppStart()
+   在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppGlobal_Init(Object sender, EventArgs e)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-03-30 02:55:26
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 5244
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:6208
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-03-30 02:56:17
+
+Message: HandlingInstanceID: 1da09efd-a314-49eb-9bde-c0b82baa78d8
+An exception of type 'System.Reflection.ReflectionTypeLoadException' occurred and was caught.
+---------------------------------------------------------------------------------------------
+03/30/2016 10:56:17
+Type : System.Reflection.ReflectionTypeLoadException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+Source : EFWCoreLib
+Help link : 
+Types : System.RuntimeType[]
+LoaderExceptions : System.Exception[]
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void AppStart()
+HResult : -2146232830
+Stack Trace :    在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppStart()
+   在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppGlobal_Init(Object sender, EventArgs e)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-03-30 02:56:17
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 3956
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:2980
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-03-30 03:22:31
+
+Message: HandlingInstanceID: b69553a2-2160-477e-a49b-0893a17c55a9
+An exception of type 'System.Exception' occurred and was caught.
+----------------------------------------------------------------
+03/30/2016 11:22:31
+Type : System.Exception, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 控制器中没有此方法名
+Source : EFWCoreLib
+Help link : 
+Data : System.Collections.ListDictionaryInternal
+TargetSite : System.Reflection.MethodInfo CreateMethodInfo(System.String, System.String)
+HResult : -2146233088
+Stack Trace :    在 EFWCoreLib.WinformFrame.Controller.ControllerHelper.CreateMethodInfo(String controllername, String methodname)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-03-30 03:22:31
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 1236
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:5248
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-03-30 03:22:31
+
+Message: HandlingInstanceID: 81a79d11-b27e-4422-ae42-93368a8da052
+An exception of type 'System.Exception' occurred and was caught.
+----------------------------------------------------------------
+03/30/2016 11:22:31
+Type : System.Exception, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 控制器中没有此方法名
+Source : EFWCoreLib
+Help link : 
+Data : System.Collections.ListDictionaryInternal
+TargetSite : System.Reflection.MethodInfo CreateMethodInfo(System.String, System.String)
+HResult : -2146233088
+Stack Trace :    在 EFWCoreLib.WinformFrame.Controller.ControllerHelper.CreateMethodInfo(String controllername, String methodname)
+   在 EFWCoreLib.WinformFrame.Controller.WinformController.UI_ControllerEvent(String eventname, Object[] objs)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-03-30 03:22:31
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 1236
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:5248
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-04-10 06:46:20
+
+Message: HandlingInstanceID: aa579035-cea2-410e-bd14-674f41afcae4
+An exception of type 'System.Reflection.ReflectionTypeLoadException' occurred and was caught.
+---------------------------------------------------------------------------------------------
+04/10/2016 14:46:20
+Type : System.Reflection.ReflectionTypeLoadException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+Source : EFWCoreLib
+Help link : 
+Types : System.RuntimeType[]
+LoaderExceptions : System.Exception[]
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void AppStart()
+HResult : -2146232830
+Stack Trace :    在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppStart()
+   在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppGlobal_Init(Object sender, EventArgs e)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-04-10 06:46:20
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 10464
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:6604
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-04-10 06:49:16
+
+Message: HandlingInstanceID: e8a36378-c128-475b-925d-8c58efd745db
+An exception of type 'System.Reflection.ReflectionTypeLoadException' occurred and was caught.
+---------------------------------------------------------------------------------------------
+04/10/2016 14:49:16
+Type : System.Reflection.ReflectionTypeLoadException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+Source : EFWCoreLib
+Help link : 
+Types : System.RuntimeType[]
+LoaderExceptions : System.Exception[]
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void AppStart()
+HResult : -2146232830
+Stack Trace :    在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppStart()
+   在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppGlobal_Init(Object sender, EventArgs e)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-04-10 06:49:16
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 13172
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:6124
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-04-10 06:49:31
+
+Message: HandlingInstanceID: 398fb34f-8ee9-4703-8aab-077f948a6d28
+An exception of type 'System.Reflection.ReflectionTypeLoadException' occurred and was caught.
+---------------------------------------------------------------------------------------------
+04/10/2016 14:49:31
+Type : System.Reflection.ReflectionTypeLoadException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+Source : EFWCoreLib
+Help link : 
+Types : System.RuntimeType[]
+LoaderExceptions : System.Exception[]
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void AppStart()
+HResult : -2146232830
+Stack Trace :    在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppStart()
+   在 EFWCoreLib.CoreFrame.Init.AppGlobal.AppGlobal_Init(Object sender, EventArgs e)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-04-10 06:49:31
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 20240
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:23964
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-04-12 11:43:12
+
+Message: HandlingInstanceID: dd4ec267-3f18-49eb-966d-90a0e35fb9f0
+An exception of type 'System.Exception' occurred and was caught.
+----------------------------------------------------------------
+04/12/2016 19:43:12
+Type : System.Exception, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 控制器中没有此方法名
+Source : EFWCoreLib
+Help link : 
+Data : System.Collections.ListDictionaryInternal
+TargetSite : System.Reflection.MethodInfo CreateMethodInfo(System.String, System.String)
+HResult : -2146233088
+Stack Trace :    在 EFWCoreLib.WinformFrame.Controller.ControllerHelper.CreateMethodInfo(String controllername, String methodname)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-04-12 11:43:12
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 9236
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:9472
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-04-12 11:43:12
+
+Message: HandlingInstanceID: 95395e31-da72-4e4d-9902-0331510d0bab
+An exception of type 'System.Exception' occurred and was caught.
+----------------------------------------------------------------
+04/12/2016 19:43:12
+Type : System.Exception, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 控制器中没有此方法名
+Source : EFWCoreLib
+Help link : 
+Data : System.Collections.ListDictionaryInternal
+TargetSite : System.Reflection.MethodInfo CreateMethodInfo(System.String, System.String)
+HResult : -2146233088
+Stack Trace :    在 EFWCoreLib.WinformFrame.Controller.ControllerHelper.CreateMethodInfo(String controllername, String methodname)
+   在 EFWCoreLib.WinformFrame.Controller.WinformController.UI_ControllerEvent(String eventname, Object[] objs)
+
+Additional Info:
+
+MachineName : UALG394S3SBEXSU
+TimeStamp : 2016-04-12 11:43:12
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : UALG394S3SBEXSU\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: UALG394S3SBEXSU
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 9236
+
+Process Name: D:\工作台\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:9472
+
+Extended Properties: 
+----------------------------------------

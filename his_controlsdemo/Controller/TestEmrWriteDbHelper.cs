@@ -12,10 +12,14 @@ namespace TestControls
     public class TestEmrDbHelper : IEmrDbHelper
     {
         protected SqlDbHelper oleDb;
-        public TestEmrDbHelper()
+        public TestEmrDbHelper(string _ConnectionString)
         {
             oleDb = new SqlDbHelper();
-            oleDb.ConnectionString = "Data Source=.;Initial Catalog=EFWDB;User ID=sa;pwd=1;";
+            if (_ConnectionString != null)
+                oleDb.ConnectionString = _ConnectionString;
+            else
+                oleDb.ConnectionString = "Data Source=.;Initial Catalog=EFWDB;User ID=sa;pwd=1;";
+            //oleDb.ConnectionString = @"Data Source=SKY-20150826TVZ\SQLSERVER2008;Initial Catalog=EFWDB;User ID=sa;pwd=1;";
         }
 
         #region IEmrDbHelper 成员
@@ -58,7 +62,7 @@ namespace TestControls
 
     public class TestEmrTemplateDbHelper : TestEmrDbHelper, IEmrTemplateDbHelper
     {
-
+        public TestEmrTemplateDbHelper(string _ConnectionString) : base(_ConnectionString) { }
         #region IEmrTemplateDbHelper 成员
 
         public DataTable GetDeptData()
@@ -136,7 +140,7 @@ namespace TestControls
     }
     public class TestEmrWriteDbHelper : TestEmrDbHelper, IEmrWriteDbHelper
     {
-
+        public TestEmrWriteDbHelper(string _ConnectionString) : base(_ConnectionString) { }
         #region IEmrDataSource 成员
 
         public void InitData(EMR.Controls.Action.EmrBindKeyData keydata)
