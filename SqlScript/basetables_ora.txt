@@ -1,0 +1,2482 @@
+-- INTEGRITY PACKAGE DEFINITION
+CREATE OR REPLACE PACKAGE BODY INTEGRITYPACKAGE AS
+ NESTLEVEL NUMBER;
+
+-- PROCEDURE TO INITIALIZE THE TRIGGER NEST LEVEL
+ PROCEDURE INITNESTLEVEL IS
+ BEGIN
+ NESTLEVEL := 0;
+ END;
+
+
+-- FUNCTION TO RETURN THE TRIGGER NEST LEVEL
+ FUNCTION GETNESTLEVEL RETURN NUMBER IS
+ BEGIN
+ IF NESTLEVEL IS NULL THEN
+     NESTLEVEL := 0;
+ END IF;
+ RETURN(NESTLEVEL);
+ END;
+
+-- PROCEDURE TO INCREASE THE TRIGGER NEST LEVEL
+ PROCEDURE NEXTNESTLEVEL IS
+ BEGIN
+ IF NESTLEVEL IS NULL THEN
+     NESTLEVEL := 0;
+ END IF;
+ NESTLEVEL := NESTLEVEL + 1;
+ END;
+
+-- PROCEDURE TO DECREASE THE TRIGGER NEST LEVEL
+ PROCEDURE PREVIOUSNESTLEVEL IS
+ BEGIN
+ NESTLEVEL := NESTLEVEL - 1;
+ END;
+
+ END INTEGRITYPACKAGE;
+/
+
+
+CREATE SEQUENCE HIS.S_BASEDEPT
+INCREMENT BY 1
+START WITH 1
+ MAXVALUE 999999999999999999
+ MINVALUE 1
+ CACHE 20
+/
+
+CREATE SEQUENCE HIS.S_BASEDEPTLAYER
+/
+
+CREATE SEQUENCE HIS.S_BASEEMPDEPT
+/
+
+CREATE SEQUENCE HIS.S_BASEEMPLOYEE
+/
+
+CREATE SEQUENCE HIS.S_BASEGENERALDATAUNIT
+/
+
+CREATE SEQUENCE HIS.S_BASEGENERALFIELD
+/
+
+CREATE SEQUENCE HIS.S_BASEGENERALGROUPTITLE
+/
+
+CREATE SEQUENCE HIS.S_BASEGENERALLAYER
+/
+
+CREATE SEQUENCE HIS.S_BASEGENERALSTATICDDATA
+/
+
+CREATE SEQUENCE HIS.S_BASEGENERALTITLE
+/
+
+CREATE SEQUENCE HIS.S_BASEGROUP
+/
+
+CREATE SEQUENCE HIS.S_BASEGROUPMENU
+/
+
+CREATE SEQUENCE HIS.S_BASEGROUPPAGE
+/
+
+CREATE SEQUENCE HIS.S_BASEGROUPUSER
+/
+
+CREATE SEQUENCE HIS.S_BASEMENU
+/
+
+CREATE SEQUENCE HIS.S_BASEMESSAGE
+/
+
+CREATE SEQUENCE HIS.S_BASEMESSAGEREAD
+/
+
+CREATE SEQUENCE HIS.S_BASEMESSAGETYPE
+/
+
+CREATE SEQUENCE HIS.S_BASEMESSAGETYPEUSER
+/
+
+CREATE SEQUENCE HIS.S_BASEMODULE
+/
+
+CREATE SEQUENCE HIS.S_BASEPAGEMENU
+/
+
+CREATE SEQUENCE HIS.S_BASEREPORTFIELD
+/
+
+CREATE SEQUENCE HIS.S_BASEREPORTGROUPTITLE
+/
+
+CREATE SEQUENCE HIS.S_BASEREPORTLAYER
+/
+
+CREATE SEQUENCE HIS.S_BASEREPORTTITLE
+/
+
+CREATE SEQUENCE HIS.S_BASEUSER
+/
+
+CREATE SEQUENCE HIS.S_BASEWORKERS
+/
+
+CREATE SEQUENCE HIS.S_BOOKS
+/
+
+CREATE SEQUENCE HIS.S_CLINIC_CHANNEL
+/
+
+CREATE SEQUENCE HIS.S_CLINIC_FREQUENCY
+/
+
+CREATE SEQUENCE HIS.S_CLINIC_MEMO
+/
+
+CREATE SEQUENCE HIS.S_CLINIC_PRESCRIPTIONDETAIL
+/
+
+CREATE SEQUENCE HIS.S_CLINIC_PRESCRIPTIONLIST
+/
+
+CREATE SEQUENCE HIS.S_CLINIC_SETMEALDETAIL
+/
+
+CREATE SEQUENCE HIS.S_CLINIC_SETMEALLIST
+/
+
+CREATE SEQUENCE HIS.S_EMR_BIGDATA
+/
+
+CREATE SEQUENCE HIS.S_EMR_CATALOGUE
+/
+
+CREATE SEQUENCE HIS.S_EMR_DOCTORLEVEL
+/
+
+CREATE SEQUENCE HIS.S_EMR_TEMPLATETREE
+/
+
+CREATE SEQUENCE HIS.S_EMR_WRITERECORD
+/
+
+CREATE SEQUENCE HIS.S_HIS_DICTCLASS
+/
+
+CREATE SEQUENCE HIS.S_HIS_DICTCONTENT
+/
+
+CREATE SEQUENCE HIS.S_HIS_DISEASE
+/
+
+CREATE SEQUENCE HIS.S_HIS_PATTYPE
+/
+
+/*==============================================================*/
+/* Table: BASEDEPT                                              */
+/*==============================================================*/
+CREATE TABLE HIS.BASEDEPT 
+(
+   DEPTID               NUMBER(6)            NOT NULL,
+   LAYER                INTEGER,
+   NAME                 VARCHAR2(50),
+   PYM                  VARCHAR2(50),
+   WBM                  VARCHAR2(50),
+   SZM                  VARCHAR2(20),
+   CODE                 VARCHAR2(20),
+   DELFLAG              SMALLINT,
+   SORTORDER            INTEGER              DEFAULT (0),
+   MEMO                 VARCHAR2(200),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT BASE_DEPT_PRO_PK PRIMARY KEY (DEPTID)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEDEPT.DEPTID IS
+'ID'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPT.LAYER IS
+'级别'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPT.NAME IS
+'名称'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPT.PYM IS
+'拼音码'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPT.WBM IS
+'五笔码'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPT.SZM IS
+'数字码'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPT.CODE IS
+'代码'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPT.DELFLAG IS
+'删除标志'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPT.SORTORDER IS
+'排序号'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPT.MEMO IS
+'备注'
+/
+
+/*==============================================================*/
+/* Table: BASEDEPTLAYER                                         */
+/*==============================================================*/
+CREATE TABLE HIS.BASEDEPTLAYER 
+(
+   LAYERID              NUMBER(6)            NOT NULL,
+   PID                  INTEGER              DEFAULT (0) NOT NULL,
+   NAME                 VARCHAR2(20)         NOT NULL,
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT PK_DEPT_LAYER_ID PRIMARY KEY (LAYERID)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEDEPTLAYER.LAYERID IS
+'节点ID'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPTLAYER.PID IS
+'父节点ID'
+/
+
+COMMENT ON COLUMN HIS.BASEDEPTLAYER.NAME IS
+'名称'
+/
+
+/*==============================================================*/
+/* Table: BASEEMPDEPT                                           */
+/*==============================================================*/
+CREATE TABLE HIS.BASEEMPDEPT 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   EMPID                INTEGER              NOT NULL,
+   DEFAULTFLAG          SMALLINT             DEFAULT (1) NOT NULL,
+   DEPTID               INTEGER,
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT BASE_E_D_ROLE_PK PRIMARY KEY (ID)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEEMPDEPT.EMPID IS
+'人员ID'
+/
+
+COMMENT ON COLUMN HIS.BASEEMPDEPT.DEFAULTFLAG IS
+'默认科室标志'
+/
+
+COMMENT ON COLUMN HIS.BASEEMPDEPT.DEPTID IS
+'科室ID'
+/
+
+/*==============================================================*/
+/* Table: BASEEMPLOYEE                                          */
+/*==============================================================*/
+CREATE TABLE HIS.BASEEMPLOYEE 
+(
+   EMPID                NUMBER(6)            NOT NULL,
+   NAME                 VARCHAR2(50)         NOT NULL,
+   SEX                  INTEGER,
+   BRITHDAY             DATE,
+   SZM                  VARCHAR2(20),
+   PYM                  VARCHAR2(20),
+   WBM                  VARCHAR2(20),
+   DELFLAG              SMALLINT             DEFAULT (0),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT BASE_EMP_PRO_PK PRIMARY KEY (EMPID)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEEMPLOYEE.NAME IS
+'姓名'
+/
+
+COMMENT ON COLUMN HIS.BASEEMPLOYEE.SEX IS
+'性别'
+/
+
+COMMENT ON COLUMN HIS.BASEEMPLOYEE.BRITHDAY IS
+'生日'
+/
+
+COMMENT ON COLUMN HIS.BASEEMPLOYEE.SZM IS
+'数字吗'
+/
+
+COMMENT ON COLUMN HIS.BASEEMPLOYEE.PYM IS
+'拼音吗'
+/
+
+COMMENT ON COLUMN HIS.BASEEMPLOYEE.WBM IS
+'五笔码'
+/
+
+COMMENT ON COLUMN HIS.BASEEMPLOYEE.DELFLAG IS
+'删除标记'
+/
+
+/*==============================================================*/
+/* Table: BASEGENERALDATAUNIT                                   */
+/*==============================================================*/
+CREATE TABLE HIS.BASEGENERALDATAUNIT 
+(
+   DATAUNITID           NUMBER(6)            NOT NULL,
+   PUNITID              INTEGER              DEFAULT (-1) NOT NULL,
+   NAME                 VARCHAR2(100),
+   ISUNIT               SMALLINT             DEFAULT (0) NOT NULL,
+   UNITSQL              VARCHAR2(100),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT PK_GENERAL_DATAUNIT PRIMARY KEY (DATAUNITID)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEGENERALFIELD                                      */
+/*==============================================================*/
+CREATE TABLE HIS.BASEGENERALFIELD 
+(
+   FIELDID              NUMBER(6)            NOT NULL,
+   TITLEID              INTEGER              DEFAULT (-1) NOT NULL,
+   NAME                 VARCHAR2(100),
+   COLNAME              VARCHAR2(100),
+   COLLENGTH            INTEGER              DEFAULT (-1) NOT NULL,
+   DATATYPE             VARCHAR2(50)         DEFAULT (-1) NOT NULL,
+   UITYPE               INTEGER              DEFAULT (-1) NOT NULL,
+   DYNAMICSQL           VARCHAR2(1000),
+   DATAUNITID           VARCHAR2(50)         DEFAULT (-1) NOT NULL,
+   ISMUST               SMALLINT             DEFAULT (0) NOT NULL,
+   MATCHREGULAR         VARCHAR2(100),
+   SORTORDER            INTEGER              DEFAULT (1),
+   ISKEY                SMALLINT             DEFAULT (0),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT PK_GENERAL_FIELD PRIMARY KEY (FIELDID)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEGENERALGROUPTITLE                                 */
+/*==============================================================*/
+CREATE TABLE HIS.BASEGENERALGROUPTITLE 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   GROUPID              INTEGER              DEFAULT (-1) NOT NULL,
+   LAYERID              INTEGER              DEFAULT (-1) NOT NULL,
+   TITLEID              INTEGER              DEFAULT (-1) NOT NULL,
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT PK_GENERAL_GROUP_TITLE PRIMARY KEY (ID)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEGENERALLAYER                                      */
+/*==============================================================*/
+CREATE TABLE HIS.BASEGENERALLAYER 
+(
+   GLAYERID             NUMBER(6)            NOT NULL,
+   PID                  INTEGER              DEFAULT (-1) NOT NULL,
+   NAME                 VARCHAR2(100),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT PK_GENERAL_LAYER PRIMARY KEY (GLAYERID)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEGENERALSTATICDDATA                                */
+/*==============================================================*/
+CREATE TABLE HIS.BASEGENERALSTATICDDATA 
+(
+   STATICDATAID         NUMBER(6)            NOT NULL,
+   DATAUNITID           INTEGER              DEFAULT (-1) NOT NULL,
+   DATANAME             VARCHAR2(100),
+   DATAVAL              INTEGER,
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT PK_GENERAL_STATICDATA PRIMARY KEY (STATICDATAID)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEGENERALTITLE                                      */
+/*==============================================================*/
+CREATE TABLE HIS.BASEGENERALTITLE 
+(
+   TITLEID              NUMBER(6)            NOT NULL,
+   LAYERID              INTEGER              DEFAULT (-1) NOT NULL,
+   NAME                 VARCHAR2(100),
+   TABLENAME            VARCHAR2(100),
+   MEMO                 VARCHAR2(100),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT PK_GENERAL_TITLE PRIMARY KEY (TITLEID)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEGROUP                                             */
+/*==============================================================*/
+CREATE TABLE HIS.BASEGROUP 
+(
+   GROUPID              NUMBER(6)            NOT NULL,
+   NAME                 VARCHAR2(100)        NOT NULL,
+   DELFLAG              SMALLINT             DEFAULT (0) NOT NULL,
+   ADMIN                SMALLINT             DEFAULT (0) NOT NULL,
+   EVERYONE             SMALLINT             DEFAULT (0) NOT NULL,
+   MEMO                 VARCHAR2(254),
+   PROPERTY             CHAR(10),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT BASE_GROUP_PK PRIMARY KEY (GROUPID)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEGROUP.GROUPID IS
+'编号'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUP.NAME IS
+'名称'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUP.DELFLAG IS
+'删除标记'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUP.ADMIN IS
+'是否高级管理员'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUP.MEMO IS
+'备注'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUP.PROPERTY IS
+'属性'
+/
+
+/*==============================================================*/
+/* Table: BASEGROUPMENU                                         */
+/*==============================================================*/
+CREATE TABLE HIS.BASEGROUPMENU 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   GROUPID              INTEGER              NOT NULL,
+   MODULEID             INTEGER              NOT NULL,
+   MENUID               INTEGER              NOT NULL,
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT BASE_GROUP_MENU_PK PRIMARY KEY (ID)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEGROUPMENU.ID IS
+'编号'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUPMENU.GROUPID IS
+'组编号'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUPMENU.MODULEID IS
+'模块编号'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUPMENU.MENUID IS
+'菜单编号'
+/
+
+/*==============================================================*/
+/* Table: BASEGROUPPAGE                                         */
+/*==============================================================*/
+CREATE TABLE HIS.BASEGROUPPAGE 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   GROUPID              INTEGER              NOT NULL,
+   PAGEID               INTEGER              NOT NULL,
+   WORKID               INTEGER              DEFAULT (1) NOT NULL
+)
+/
+
+/*==============================================================*/
+/* Table: BASEGROUPUSER                                         */
+/*==============================================================*/
+CREATE TABLE HIS.BASEGROUPUSER 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   USERID               INTEGER              NOT NULL,
+   GROUPID              INTEGER              NOT NULL,
+   MEMO                 VARCHAR2(254),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT BASE_GROUP_USER_PK PRIMARY KEY (ID)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEGROUPUSER.ID IS
+'编号'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUPUSER.USERID IS
+'用户编号'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUPUSER.GROUPID IS
+'组编号'
+/
+
+COMMENT ON COLUMN HIS.BASEGROUPUSER.MEMO IS
+'备注'
+/
+
+/*==============================================================*/
+/* Table: BASEMENU                                              */
+/*==============================================================*/
+CREATE TABLE HIS.BASEMENU 
+(
+   MENUID               NUMBER(6)            NOT NULL,
+   SORTID               INTEGER              DEFAULT (0) NOT NULL,
+   NAME                 VARCHAR2(50)         NOT NULL,
+   DLLNAME              VARCHAR2(200),
+   FUNNAME              VARCHAR2(200),
+   FUNWCFNAME           VARCHAR2(200),
+   MODULEID             INTEGER              NOT NULL,
+   PMENUID              INTEGER              NOT NULL,
+   MENUTOOLBAR          SMALLINT             DEFAULT (0) NOT NULL,
+   MENULOOKBAR          SMALLINT             DEFAULT (0) NOT NULL,
+   MEMO                 VARCHAR2(254)        NOT NULL,
+   IMAGE                VARCHAR2(500),
+   URLID                VARCHAR2(100),
+   URLNAME              VARCHAR2(100),
+   BINDSQL              NCHAR(1),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT PK_MENU_ID PRIMARY KEY (MENUID)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.MENUID IS
+'编号'
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.SORTID IS
+'排序号'
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.NAME IS
+'名称'
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.DLLNAME IS
+'DLL名称'
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.FUNNAME IS
+'引出函数名称'
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.MODULEID IS
+'所属模块编号'
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.PMENUID IS
+'父菜单编号'
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.MENUTOOLBAR IS
+'是否显示在toolbar'
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.MENULOOKBAR IS
+'是否显示在outlookbar'
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.MEMO IS
+'备注'
+/
+
+COMMENT ON COLUMN HIS.BASEMENU.IMAGE IS
+'菜单图片'
+/
+
+/*==============================================================*/
+/* Table: BASEMESSAGE                                           */
+/*==============================================================*/
+CREATE TABLE HIS.BASEMESSAGE 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   MESSAGETYPE          VARCHAR2(30)         DEFAULT (-1) NOT NULL,
+   SENDUSER             INTEGER              DEFAULT (-1) NOT NULL,
+   SENDDEPT             INTEGER,
+   SENDWORK             INTEGER              DEFAULT (-1),
+   SENDTIME             DATE,
+   RECEIVEUSER          INTEGER,
+   RECEIVEDEPT          INTEGER,
+   RECEIVEWORK          INTEGER,
+   MESSAGETITLE         VARCHAR2(100),
+   MESSAGECONTENT       VARCHAR2(2000),
+   LIMITTIME            DATE,
+   RELATIONURL          VARCHAR2(500),
+   RELATIONTEXT         VARCHAR2(100),
+   RELATIONID           VARCHAR2(50),
+   ANSWERMESSAGEID      INTEGER,
+   WORKID               INTEGER
+)
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGE.MESSAGETYPE IS
+'发送人'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGE.SENDUSER IS
+'发送科室'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGE.SENDDEPT IS
+'发送菜单模块'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGE.SENDWORK IS
+'发送模块系统'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGE.SENDTIME IS
+'消息发送时间'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGE.MESSAGETITLE IS
+'消息标题'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGE.MESSAGECONTENT IS
+'消息内容'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGE.LIMITTIME IS
+'消息有效期'
+/
+
+/*==============================================================*/
+/* Table: BASEMESSAGEREAD                                       */
+/*==============================================================*/
+CREATE TABLE HIS.BASEMESSAGEREAD 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   MESSAGEID            INTEGER              NOT NULL,
+   USERID               INTEGER              NOT NULL,
+   READTIME             DATE                 NOT NULL
+)
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGEREAD.MESSAGEID IS
+'消息ID'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGEREAD.USERID IS
+'人员ID'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGEREAD.READTIME IS
+'读取时间'
+/
+
+/*==============================================================*/
+/* Table: BASEMESSAGETYPE                                       */
+/*==============================================================*/
+CREATE TABLE HIS.BASEMESSAGETYPE 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   CODE                 VARCHAR2(3)          NOT NULL,
+   NAME                 VARCHAR2(50)         NOT NULL,
+   WORKFLAG             INTEGER              DEFAULT (0) NOT NULL,
+   DEPTFLAG             INTEGER              NOT NULL,
+   SENDGROUP            VARCHAR2(200),
+   RECEIVEGROUP         VARCHAR2(200),
+   LIMITTIME            VARCHAR2(10),
+   MEMO                 VARCHAR2(3000),
+   TITLETPL             VARCHAR2(200),
+   TEXTTPL              VARCHAR2(2000),
+   LINK_MODULEID        INTEGER,
+   LINK_MENUID          INTEGER,
+   LINK_NAME            VARCHAR2(200),
+   LINK_URL             VARCHAR2(200),
+   WORKID               INTEGER              DEFAULT (22)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGETYPE.CODE IS
+'消息类型编号'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGETYPE.NAME IS
+'消息类型名称'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGETYPE.WORKFLAG IS
+'接收系统模块'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGETYPE.DEPTFLAG IS
+'接收菜单模块'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGETYPE.SENDGROUP IS
+'接收科室'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGETYPE.RECEIVEGROUP IS
+'接收人'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGETYPE.LIMITTIME IS
+'格式为数字加后缀（D表示天，H表示小时，M表示分钟），如1D'
+/
+
+COMMENT ON COLUMN HIS.BASEMESSAGETYPE.MEMO IS
+'消息类型说明'
+/
+
+/*==============================================================*/
+/* Table: BASEMESSAGETYPEUSER                                   */
+/*==============================================================*/
+CREATE TABLE HIS.BASEMESSAGETYPEUSER 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   MESSAGETYPEID        INTEGER              NOT NULL,
+   USERID               INTEGER              NOT NULL,
+   RECEIVETIME          VARCHAR2(200)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEMODULE                                            */
+/*==============================================================*/
+CREATE TABLE HIS.BASEMODULE 
+(
+   MODULEID             NUMBER(6)            NOT NULL,
+   NAME                 VARCHAR2(200),
+   MEMO                 VARCHAR2(254),
+   SORTID               INTEGER              DEFAULT (-1),
+   SERVERIP             VARCHAR2(200),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT SQL050117112356070 PRIMARY KEY (MODULEID)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEMODULE.MODULEID IS
+'编号'
+/
+
+COMMENT ON COLUMN HIS.BASEMODULE.NAME IS
+'名称'
+/
+
+COMMENT ON COLUMN HIS.BASEMODULE.MEMO IS
+'备注'
+/
+
+COMMENT ON COLUMN HIS.BASEMODULE.SORTID IS
+'排序'
+/
+
+/*==============================================================*/
+/* Table: BASEPAGEMENU                                          */
+/*==============================================================*/
+CREATE TABLE HIS.BASEPAGEMENU 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   MODULEID             INTEGER              NOT NULL,
+   MENUID               INTEGER              NOT NULL,
+   CODE                 VARCHAR2(100)        NOT NULL,
+   NAME                 VARCHAR2(200)        NOT NULL,
+   WORKID               INTEGER              DEFAULT (1) NOT NULL
+)
+/
+
+/*==============================================================*/
+/* Table: BASEREPORTFIELD                                       */
+/*==============================================================*/
+CREATE TABLE HIS.BASEREPORTFIELD 
+(
+   FIELDID              NUMBER(6)            NOT NULL,
+   TITLEID              INTEGER              DEFAULT (-1) NOT NULL,
+   NAME                 VARCHAR2(100),
+   COLNAME              VARCHAR2(100),
+   COLLENGTH            INTEGER              DEFAULT (-1) NOT NULL,
+   DATATYPE             VARCHAR2(20),
+   UITYPE               INTEGER              DEFAULT (-1) NOT NULL,
+   DYNAMICSQL           VARCHAR2(1000),
+   DATAUNITID           VARCHAR2(20)         DEFAULT (-1),
+   ISMUST               SMALLINT             DEFAULT (0) NOT NULL,
+   MATCHREGULAR         VARCHAR2(100),
+   SORTID               INTEGER              DEFAULT (0),
+   ISKEY                SMALLINT             DEFAULT (0),
+   WORKID               INTEGER,
+   CONSTRAINT PK_REPORT_FIELD PRIMARY KEY (FIELDID)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEREPORTGROUPTITLE                                  */
+/*==============================================================*/
+CREATE TABLE HIS.BASEREPORTGROUPTITLE 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   GROUPID              INTEGER              DEFAULT (-1) NOT NULL,
+   LAYERID              INTEGER              DEFAULT (-1) NOT NULL,
+   TITLEID              INTEGER              DEFAULT (-1) NOT NULL,
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT PK_REPORT_GROUP_TITLE PRIMARY KEY (ID)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEREPORTLAYER                                       */
+/*==============================================================*/
+CREATE TABLE HIS.BASEREPORTLAYER 
+(
+   LAYERID              NUMBER(6)            NOT NULL,
+   PLAYERID             INTEGER              DEFAULT (-1) NOT NULL,
+   NAME                 VARCHAR2(100),
+   WORKID               INTEGER              NOT NULL,
+   CONSTRAINT PK_REPORT_LAYER PRIMARY KEY (LAYERID)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEREPORTTITLE                                       */
+/*==============================================================*/
+CREATE TABLE HIS.BASEREPORTTITLE 
+(
+   TITLEID              NUMBER(6)            NOT NULL,
+   LAYERID              INTEGER              DEFAULT (-1) NOT NULL,
+   NAME                 VARCHAR2(100),
+   PRONAME              VARCHAR2(100),
+   TYPE                 SMALLINT             DEFAULT (1),
+   RPTFILENAME          VARCHAR2(100),
+   MEMO                 VARCHAR2(100),
+   WORKID               INTEGER              NOT NULL,
+   CONSTRAINT PK_REPORT_TITLE PRIMARY KEY (TITLEID)
+)
+/
+
+/*==============================================================*/
+/* Table: BASEUSER                                              */
+/*==============================================================*/
+CREATE TABLE HIS.BASEUSER 
+(
+   USERID               NUMBER(6)            NOT NULL,
+   EMPID                INTEGER              NOT NULL,
+   CODE                 VARCHAR2(50)         NOT NULL,
+   PASSWORD             VARCHAR2(50),
+   GROUPID              INTEGER,
+   "LOCK"               SMALLINT             DEFAULT (0),
+   MEMO                 VARCHAR2(500),
+   ISADMIN              INTEGER              DEFAULT (0),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL,
+   CONSTRAINT BASE_USER_PK PRIMARY KEY (USERID),
+   CONSTRAINT UK_ID UNIQUE (EMPID, CODE)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEUSER.USERID IS
+'ID'
+/
+
+COMMENT ON COLUMN HIS.BASEUSER.EMPID IS
+'人员编号'
+/
+
+COMMENT ON COLUMN HIS.BASEUSER.CODE IS
+'用户名'
+/
+
+COMMENT ON COLUMN HIS.BASEUSER.PASSWORD IS
+'密码'
+/
+
+COMMENT ON COLUMN HIS.BASEUSER.GROUPID IS
+'所属组'
+/
+
+COMMENT ON COLUMN HIS.BASEUSER."LOCK" IS
+'锁定标记'
+/
+
+/*==============================================================*/
+/* Table: BASEWORKERS                                           */
+/*==============================================================*/
+CREATE TABLE HIS.BASEWORKERS 
+(
+   WORKID               NUMBER(6)            NOT NULL,
+   WORKNO               VARCHAR2(50),
+   WORKNAME             VARCHAR2(200),
+   MEMO                 VARCHAR2(500),
+   REGKEY               VARCHAR2(500),
+   EDITIONCODE          VARCHAR2(20),
+   DELFLAG              SMALLINT             DEFAULT (-1),
+   CONSTRAINT PK_BASEWORKERS PRIMARY KEY (WORKID)
+)
+/
+
+COMMENT ON COLUMN HIS.BASEWORKERS.WORKID IS
+'ID'
+/
+
+COMMENT ON COLUMN HIS.BASEWORKERS.WORKNO IS
+'工作组编码'
+/
+
+COMMENT ON COLUMN HIS.BASEWORKERS.WORKNAME IS
+'工作组名称'
+/
+
+COMMENT ON COLUMN HIS.BASEWORKERS.MEMO IS
+'工作组备注'
+/
+
+COMMENT ON COLUMN HIS.BASEWORKERS.REGKEY IS
+'注册码'
+/
+
+COMMENT ON COLUMN HIS.BASEWORKERS.EDITIONCODE IS
+'版本号'
+/
+
+/*==============================================================*/
+/* Table: BOOKS                                                 */
+/*==============================================================*/
+CREATE TABLE HIS.BOOKS 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   BOOKNAME             VARCHAR2(50),
+   BUYPRICE             NUMBER(18,2),
+   BUYDATE              DATE,
+   FLAG                 SMALLINT             DEFAULT (0),
+   IMAGE1               BLOB,
+   WORKID               INTEGER
+)
+/
+
+/*==============================================================*/
+/* Table: CLINIC_CHANNEL                                        */
+/*==============================================================*/
+CREATE TABLE HIS.CLINIC_CHANNEL 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   CHANNELNAME          VARCHAR2(100)        NOT NULL,
+   CNAME                VARCHAR2(100)        NOT NULL,
+   ENAME                VARCHAR2(100)        NOT NULL,
+   OUTUSED              VARCHAR2(1)          NOT NULL,
+   INUSED               VARCHAR2(1)          NOT NULL,
+   PYCODE               VARCHAR2(30)         NOT NULL,
+   WBCODE               VARCHAR2(30)         NOT NULL,
+   INPUTCODE            VARCHAR2(10),
+   USAGETYPE            SMALLINT             NOT NULL,
+   DELETEFLAG           SMALLINT             NOT NULL,
+   ORDERNUM             SMALLINT
+)
+/
+
+/*==============================================================*/
+/* Table: CLINIC_FREQUENCY                                      */
+/*==============================================================*/
+CREATE TABLE HIS.CLINIC_FREQUENCY 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   FREQUENCYNAME        VARCHAR2(40)         NOT NULL,
+   CNAME                VARCHAR2(20)         NOT NULL,
+   ENAME                VARCHAR2(40)         NOT NULL,
+   PYCODE               VARCHAR2(20)         NOT NULL,
+   WBCODE               VARCHAR2(20)         NOT NULL,
+   NUMCODE              VARCHAR2(2)          NOT NULL,
+   INPUTCODE            VARCHAR2(20)         NOT NULL,
+   EXECUTECODE          VARCHAR2(100)        NOT NULL,
+   DELETEFLAG           SMALLINT             NOT NULL,
+   ORDERNUM             SMALLINT
+)
+/
+
+/*==============================================================*/
+/* Table: CLINIC_MEMO                                           */
+/*==============================================================*/
+CREATE TABLE HIS.CLINIC_MEMO 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   DEPTCODE             VARCHAR2(10)         NOT NULL,
+   HELPCODE             VARCHAR2(10)         NOT NULL,
+   MSGCONTENT           VARCHAR2(100)        NOT NULL,
+   PYCODE               VARCHAR2(30)         NOT NULL,
+   WBCODE               VARCHAR2(30)         NOT NULL,
+   UPLOADER             SMALLINT             NOT NULL,
+   UPLOADTIME           DATE                 NOT NULL
+)
+/
+
+/*==============================================================*/
+/* Table: CLINIC_PRESCRIPTIONDETAIL                             */
+/*==============================================================*/
+CREATE TABLE HIS.CLINIC_PRESCRIPTIONDETAIL 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   PRESCRIPTIONID       INTEGER              NOT NULL,
+   LISTNO               SMALLINT             NOT NULL,
+   GROUPID              SMALLINT             NOT NULL,
+   FEEID                INTEGER              NOT NULL,
+   FEENAME              VARCHAR2(50)         NOT NULL,
+   SPEC                 VARCHAR2(60)         NOT NULL,
+   DOSAGE               NUMBER(9,4)          NOT NULL,
+   DOSAGEUNIT           VARCHAR2(20)         NOT NULL,
+   FACTOR               NUMBER(9,4)          NOT NULL,
+   CHANNELID            SMALLINT             NOT NULL,
+   FREQUENCYID          INTEGER              NOT NULL,
+   NUM                  INTEGER              NOT NULL,
+   AMOUNT               NUMBER(9,4)          NOT NULL,
+   UNIT                 VARCHAR2(20)         NOT NULL,
+   PRICE                NUMBER(9,4)          NOT NULL,
+   DAYS                 SMALLINT             NOT NULL,
+   ISAST                SMALLINT             NOT NULL,
+   ASTRESULT            VARCHAR2(1)          NOT NULL,
+   ISTAKE               SMALLINT             NOT NULL,
+   MEMO                 VARCHAR2(255)        NOT NULL,
+   ISCHARGED            SMALLINT             NOT NULL,
+   ISCANCEL             SMALLINT             NOT NULL,
+   ISSEND               SMALLINT             NOT NULL,
+   DOCTORID             INTEGER              NOT NULL,
+   DEPTCODE             VARCHAR2(20)         NOT NULL,
+   COSTID               INTEGER              DEFAULT (0),
+   FAVORFEE             NUMBER(18,2)         DEFAULT (0) NOT NULL,
+   PRESAMOUNT           NUMBER(9,4),
+   PRESAMOUNTUNIT       VARCHAR2(20),
+   PRESFACTOR           VARCHAR2(20)
+)
+/
+
+COMMENT ON TABLE HIS.CLINIC_PRESCRIPTIONDETAIL IS
+'处方明细表'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.LISTNO IS
+'方号'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.GROUPID IS
+'组号'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.FEEID IS
+'收费项目ID'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.FEENAME IS
+'项目名称'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.SPEC IS
+'规格'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.DOSAGE IS
+'剂量'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.DOSAGEUNIT IS
+'剂量单位'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.FACTOR IS
+'剂量单位与小单位的转换系数'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.CHANNELID IS
+'用法Id'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.FREQUENCYID IS
+'频次ID （如果是皮试或手术套餐带出来的明细则存放父记录的FeeID）'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.NUM IS
+'中药剂数'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.AMOUNT IS
+'总量'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.UNIT IS
+'单位'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.PRICE IS
+'价格'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.DAYS IS
+'天数'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.ISAST IS
+'是否皮试 0-否 1-是'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.ASTRESULT IS
+'皮试结果   0-阴 1-阳'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.ISTAKE IS
+'是否自备药'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.MEMO IS
+'备注'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.ISCHARGED IS
+'是否已收费 0-否 1-是'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.ISCANCEL IS
+'是否作废   0-否 1-是'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.ISSEND IS
+'是否已发药 0-否 1-是'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.DOCTORID IS
+'开处方医生'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.DEPTCODE IS
+'科室Code'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.FAVORFEE IS
+'优惠金额'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.PRESAMOUNT IS
+'处方总量  需要增加列cPresAmount'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.PRESAMOUNTUNIT IS
+'处方总量单位需要增加列cPresAmountUnit'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONDETAIL.PRESFACTOR IS
+'药库单位与小单位的转换系数需要增加列cPresFactor ,在列cPresAmountUnit改变后复制'
+/
+
+/*==============================================================*/
+/* Index: DATA_PRESCRIPTIONDETAIL_INDEX                         */
+/*==============================================================*/
+CREATE INDEX HIS.DATA_PRESCRIPTIONDETAIL_INDEX ON HIS.CLINIC_PRESCRIPTIONDETAIL (
+   PRESCRIPTIONID ASC
+)
+/
+
+/*==============================================================*/
+/* Index: DATA_PRESCRIPTIONDETAIL_UC_IND                        */
+/*==============================================================*/
+CREATE UNIQUE INDEX HIS.DATA_PRESCRIPTIONDETAIL_UC_IND ON HIS.CLINIC_PRESCRIPTIONDETAIL (
+   ID ASC
+)
+/
+
+/*==============================================================*/
+/* Table: CLINIC_PRESCRIPTIONLIST                               */
+/*==============================================================*/
+CREATE TABLE HIS.CLINIC_PRESCRIPTIONLIST 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   PATIENTID            INTEGER              NOT NULL,
+   ORDERCLASS           SMALLINT             NOT NULL,
+   ORDERTIME            DATE                 NOT NULL
+)
+/
+
+COMMENT ON TABLE HIS.CLINIC_PRESCRIPTIONLIST IS
+'处方表头'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONLIST.ID IS
+'0'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONLIST.PATIENTID IS
+'病人ID'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONLIST.ORDERCLASS IS
+'处方类型  1--西药  2--中药 3-材料项目(手术) 4--检查检验'
+/
+
+COMMENT ON COLUMN HIS.CLINIC_PRESCRIPTIONLIST.ORDERTIME IS
+'处方时间'
+/
+
+/*==============================================================*/
+/* Index: DATA_PRESCRIPTIONLIST_INDEX                           */
+/*==============================================================*/
+CREATE INDEX HIS.DATA_PRESCRIPTIONLIST_INDEX ON HIS.CLINIC_PRESCRIPTIONLIST (
+   PATIENTID ASC
+)
+/
+
+/*==============================================================*/
+/* Index: DATA_PRESCRIPTIONLIST_UC_INDEX                        */
+/*==============================================================*/
+CREATE UNIQUE INDEX HIS.DATA_PRESCRIPTIONLIST_UC_INDEX ON HIS.CLINIC_PRESCRIPTIONLIST (
+   ID ASC
+)
+/
+
+/*==============================================================*/
+/* Table: CLINIC_SETMEALDETAIL                                  */
+/*==============================================================*/
+CREATE TABLE HIS.CLINIC_SETMEALDETAIL 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   LISTID               INTEGER              NOT NULL,
+   LISTNO               INTEGER              NOT NULL,
+   GROUPID              INTEGER              NOT NULL,
+   ORDERNUM             SMALLINT             NOT NULL,
+   FEEID                VARCHAR2(100)        NOT NULL,
+   FEENAME              VARCHAR2(100)        NOT NULL,
+   FEECLASS             SMALLINT             NOT NULL,
+   DOSAGE               NUMBER(9,4),
+   DOSAGEUNIT           VARCHAR2(20)         NOT NULL,
+   AMOUNT               NUMBER(9,2)          NOT NULL,
+   UNIT                 VARCHAR2(20)         NOT NULL,
+   FREQUENCYID          SMALLINT             NOT NULL,
+   CHANNELID            SMALLINT             NOT NULL,
+   DAYS                 SMALLINT             NOT NULL,
+   MEMO                 VARCHAR2(255)        NOT NULL
+)
+/
+
+/*==============================================================*/
+/* Table: CLINIC_SETMEALLIST                                    */
+/*==============================================================*/
+CREATE TABLE HIS.CLINIC_SETMEALLIST 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   PARENTID             INTEGER              NOT NULL,
+   LEVELVALUE           SMALLINT             NOT NULL,
+   NODENAME             VARCHAR2(50)         NOT NULL,
+   DEPTCODE             VARCHAR2(10)         NOT NULL,
+   STAFFID              SMALLINT             NOT NULL,
+   PYCODE               VARCHAR2(10)         NOT NULL,
+   WBCODE               VARCHAR2(10)         NOT NULL,
+   SORTORDER            INTEGER
+)
+/
+
+/*==============================================================*/
+/* Table: EMR_BIGDATA                                           */
+/*==============================================================*/
+CREATE TABLE HIS.EMR_BIGDATA 
+(
+   EMRDATAID            NUMBER(6)            NOT NULL,
+   BIGDATA              BLOB,
+   CREATETIME           DATE,
+   FLAG                 INTEGER              DEFAULT (0) NOT NULL,
+   UPDATETIME           DATE
+)
+/
+
+/*==============================================================*/
+/* Table: EMR_CATALOGUE                                         */
+/*==============================================================*/
+CREATE TABLE HIS.EMR_CATALOGUE 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   NODECODE             VARCHAR2(10)         NOT NULL,
+   NODETEXT             VARCHAR2(50)         NOT NULL,
+   EVENTNAME            VARCHAR2(50),
+   MUSTWRITEFLAG        SMALLINT             DEFAULT (0) NOT NULL,
+   UNIQUENESSFLAG       SMALLINT             DEFAULT (0) NOT NULL,
+   WRITEHOURS           INTEGER              DEFAULT (0) NOT NULL,
+   AUDITHOURS           INTEGER              DEFAULT (0) NOT NULL,
+   DIAGNOSEHOURS        INTEGER              DEFAULT (0) NOT NULL,
+   GENERALHOURS         INTEGER              DEFAULT (0) NOT NULL,
+   SERIOUSLYHOURS       INTEGER              DEFAULT (0) NOT NULL,
+   CRITICALHOURS        INTEGER              DEFAULT (0) NOT NULL,
+   DELETEFLAG           INTEGER              DEFAULT (0) NOT NULL
+)
+/
+
+/*==============================================================*/
+/* Table: EMR_DOCTORLEVEL                                       */
+/*==============================================================*/
+CREATE TABLE HIS.EMR_DOCTORLEVEL 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   LEVELCODE            INTEGER              NOT NULL,
+   LEVELNAME            VARCHAR2(50)         NOT NULL
+)
+/
+
+/*==============================================================*/
+/* Table: EMR_TEMPLATETREE                                      */
+/*==============================================================*/
+CREATE TABLE HIS.EMR_TEMPLATETREE 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   TEMPLATETEXT         VARCHAR2(50)         NOT NULL,
+   CATALOGUECODE        VARCHAR2(10),
+   DEPTCODE             VARCHAR2(10),
+   DEPTNAME             VARCHAR2(50),
+   LEVELCODE            INTEGER              DEFAULT (0),
+   USERCODE             VARCHAR2(10),
+   USERNAME             VARCHAR2(50),
+   EMRDATAID            INTEGER              DEFAULT (0) NOT NULL,
+   CREATETIME           DATE,
+   DELETEFLAG           INTEGER              DEFAULT (0) NOT NULL
+)
+/
+
+/*==============================================================*/
+/* Table: EMR_WRITERECORD                                       */
+/*==============================================================*/
+CREATE TABLE HIS.EMR_WRITERECORD 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   RECORDTEXT           VARCHAR2(50)         NOT NULL,
+   CATALOGUECODE        VARCHAR2(10),
+   DEPTCODE             VARCHAR2(10),
+   DEPTNAME             VARCHAR2(50),
+   USERCODE             VARCHAR2(10),
+   USERNAME             VARCHAR2(50),
+   PATIENTID            INTEGER              DEFAULT (0),
+   EMRDATAID            INTEGER              DEFAULT (0) NOT NULL,
+   ORDERNUM             INTEGER              DEFAULT (0),
+   FIRSTSIGNATURE       INTEGER              DEFAULT (0),
+   FIRSTSIGNTIME        DATE,
+   FIRSTDOCTORLEVEL     INTEGER              DEFAULT (0) NOT NULL,
+   FIRSTDOCTORLEVELNAME VARCHAR2(50),
+   FIRSTSIGNBLOB        BLOB,
+   SECONDSIGNATURE      INTEGER              DEFAULT (0),
+   SECONDSIGNTIME       DATE,
+   SECONDDOCTORCODE     VARCHAR2(10),
+   SECONDDOCTORNAME     VARCHAR2(50),
+   SECONDDOCTORLEVEL    INTEGER              DEFAULT (0) NOT NULL,
+   SECONDDOCTORLEVELNAME VARCHAR2(50),
+   SECONDSIGNBLOB       BLOB,
+   THREESIGNATURE       INTEGER              DEFAULT (0),
+   THREESIGNTIME        DATE,
+   THREEDOCTORCODE      VARCHAR2(10),
+   THREEDOCTORNAME      VARCHAR2(50),
+   THREEDOCTORLEVEL     INTEGER              DEFAULT (0) NOT NULL,
+   THREEDOCTORLEVELNAME VARCHAR2(50),
+   THREESIGNBLOB        BLOB,
+   CREATETIME           DATE,
+   PRINTTIME            DATE,
+   DELETEFLAG           INTEGER              DEFAULT (0) NOT NULL,
+   HOSPTIALID           INTEGER              DEFAULT (0)
+)
+/
+
+/*==============================================================*/
+/* Table: HIS_DICTCLASS                                         */
+/*==============================================================*/
+CREATE TABLE HIS.HIS_DICTCLASS 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   CODE                 INTEGER,
+   NAME                 VARCHAR2(50),
+   PYM                  VARCHAR2(50),
+   WBM                  VARCHAR2(50),
+   SZM                  VARCHAR2(20),
+   MEMO                 VARCHAR2(200),
+   DELFLAG              SMALLINT             DEFAULT (0),
+   SORTORDER            INTEGER              DEFAULT (0),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL
+)
+/
+
+/*==============================================================*/
+/* Table: HIS_DICTCONTENT                                       */
+/*==============================================================*/
+CREATE TABLE HIS.HIS_DICTCONTENT 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   CLASSID              INTEGER              NOT NULL,
+   CODE                 VARCHAR2(50),
+   NAME                 VARCHAR2(50),
+   PYM                  VARCHAR2(50),
+   WBM                  VARCHAR2(50),
+   SZM                  VARCHAR2(20),
+   MEMO                 VARCHAR2(200),
+   DELFLAG              SMALLINT             DEFAULT (0),
+   SORTORDER            INTEGER              DEFAULT (0),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL
+)
+/
+
+/*==============================================================*/
+/* Table: HIS_DISEASE                                           */
+/*==============================================================*/
+CREATE TABLE HIS.HIS_DISEASE 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   ICDCODE              VARCHAR2(20),
+   NAME                 VARCHAR2(100)        NOT NULL,
+   PYCODE               VARCHAR2(50),
+   WBCODE               VARCHAR2(50),
+   TYPE                 VARCHAR2(1)
+)
+/
+
+COMMENT ON TABLE HIS.HIS_DISEASE IS
+'病种字典表'
+/
+
+COMMENT ON COLUMN HIS.HIS_DISEASE.ID IS
+'病种ID'
+/
+
+COMMENT ON COLUMN HIS.HIS_DISEASE.ICDCODE IS
+'病种编码'
+/
+
+COMMENT ON COLUMN HIS.HIS_DISEASE.NAME IS
+'病种名称'
+/
+
+COMMENT ON COLUMN HIS.HIS_DISEASE.PYCODE IS
+'病种拼音码'
+/
+
+COMMENT ON COLUMN HIS.HIS_DISEASE.WBCODE IS
+'病种五笔码'
+/
+
+COMMENT ON COLUMN HIS.HIS_DISEASE.TYPE IS
+'类型'
+/
+
+/*==============================================================*/
+/* Index: HIS_DISEASE_UC_INDEX                                  */
+/*==============================================================*/
+CREATE UNIQUE INDEX HIS.HIS_DISEASE_UC_INDEX ON HIS.HIS_DISEASE (
+   ID ASC
+)
+/
+
+/*==============================================================*/
+/* Table: HIS_PATTYPE                                           */
+/*==============================================================*/
+CREATE TABLE HIS.HIS_PATTYPE 
+(
+   ID                   NUMBER(6)            NOT NULL,
+   CODE                 VARCHAR2(20),
+   NAME                 VARCHAR2(100)        NOT NULL,
+   PYCODE               VARCHAR2(50),
+   WBCODE               VARCHAR2(50),
+   SORTORDER            INTEGER              DEFAULT (0),
+   WORKID               INTEGER              DEFAULT (1) NOT NULL
+)
+/
+
+/*==============================================================*/
+/* Table: VIEWBASEDATA_MED                                      */
+/*==============================================================*/
+CREATE TABLE HIS.VIEWBASEDATA_MED 
+(
+   MATCLASS             INTEGER,
+   ITEMCLASS            INTEGER,
+   STOCKID              INTEGER,
+   CNAME                VARCHAR2(500),
+   TNAME                VARCHAR2(500),
+   ENAME                VARCHAR2(500),
+   SPEC                 VARCHAR2(200),
+   PYCODE               VARCHAR2(100),
+   WBCODE               VARCHAR2(100),
+   CUSCODE              VARCHAR2(100),
+   PYCODET              VARCHAR2(100),
+   WBCODET              VARCHAR2(100),
+   DEPTID               INTEGER,
+   DOSAGE               NUMBER,
+   DOSUNIT              VARCHAR2(50),
+   MINIUNIT             VARCHAR2(50),
+   PACKAMOUNT           NUMBER,
+   PACKUNIT             VARCHAR2(50),
+   CLINPRICE            NUMBER,
+   WARDPRICE            NUMBER,
+   FACNAME              VARCHAR2(500),
+   ACTUALQTY            INTEGER,
+   SKINMETHOD           SMALLINT,
+   ROUNDINGMODE         SMALLINT
+)
+/
+
+
+CREATE PROCEDURE HIS.XPGETDRUGUNIT (
+ 	@STOCKID		INT,			--药品ID
+ 	@TYPE			TINYINT = 0		-- 0.剂量单位 1.总量单位
+ ) AS
+CREATE TABLE #TEMP
+	(	
+		STOCKID			INT  NULL,
+		UNITTYPE		INT  NULL,		 	--0,剂量单位 1，药房单位 2，药库单位
+		UNITFACTOR		DECIMAL(9,4)  NULL, --单位系数
+		UNITNAME		VARCHAR(50) NULL,	--单位名称
+	)
+	
+	DECLARE @MINIUNIT	VARCHAR(50)='',
+			@PACKUNIT	VARCHAR(50)='',
+			@PACKAMOUNT	DECIMAL(9,4) = 1,
+			@DOSUNIT	VARCHAR(50)='',
+			@DOSAGE		DECIMAL(9,4) = 1
+			
+	SELECT @MINIUNIT=MINIUNIT,@PACKUNIT=PACKUNIT,@PACKAMOUNT=PACKAMOUNT,@DOSUNIT=DOSUNIT,@DOSAGE=DOSAGE FROM VIEWBASEDATA_MED WHERE STOCKID=@STOCKID
+	IF(@TYPE=0)--剂量单位
+	BEGIN 
+	INSERT INTO #TEMP(STOCKID,UNITTYPE,UNITFACTOR,UNITNAME) VALUES(@STOCKID,0,@DOSAGE,@DOSUNIT)
+	INSERT INTO #TEMP(STOCKID,UNITTYPE,UNITFACTOR,UNITNAME) VALUES(@STOCKID,1,1,@MINIUNIT)
+	END
+	ELSE
+	BEGIN
+	INSERT INTO #TEMP(STOCKID,UNITTYPE,UNITFACTOR,UNITNAME) VALUES(@STOCKID,1,1,@MINIUNIT)
+	INSERT INTO #TEMP(STOCKID,UNITTYPE,UNITFACTOR,UNITNAME) VALUES(@STOCKID,2,@PACKAMOUNT,@PACKUNIT)
+	END
+	
+	--SELECT 0 AS ERRORCODE, '获取药品的单位成功！' AS ERRORMSG
+	SELECT * FROM #TEMP
+	DROP TABLE #TEMP
+	RETURN 0
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEDEPT BEFORE INSERT
+ON HIS.BASEDEPT FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "DEPTID" USES SEQUENCE HIS.S_BASEDEPT
+    SELECT HIS.S_BASEDEPT.NEXTVAL INTO :NEW.DEPTID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEDEPTLAYER BEFORE INSERT
+ON HIS.BASEDEPTLAYER FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "LAYERID" USES SEQUENCE HIS.S_BASEDEPTLAYER
+    SELECT HIS.S_BASEDEPTLAYER.NEXTVAL INTO :NEW.LAYERID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEEMPDEPT BEFORE INSERT
+ON HIS.BASEEMPDEPT FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEEMPDEPT
+    SELECT HIS.S_BASEEMPDEPT.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEEMPLOYEE BEFORE INSERT
+ON HIS.BASEEMPLOYEE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "EMPID" USES SEQUENCE HIS.S_BASEEMPLOYEE
+    SELECT HIS.S_BASEEMPLOYEE.NEXTVAL INTO :NEW.EMPID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEGENERALDATAUNIT BEFORE INSERT
+ON HIS.BASEGENERALDATAUNIT FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "DATAUNITID" USES SEQUENCE HIS.S_BASEGENERALDATAUNIT
+    SELECT HIS.S_BASEGENERALDATAUNIT.NEXTVAL INTO :NEW.DATAUNITID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEGENERALFIELD BEFORE INSERT
+ON HIS.BASEGENERALFIELD FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "FIELDID" USES SEQUENCE HIS.S_BASEGENERALFIELD
+    SELECT HIS.S_BASEGENERALFIELD.NEXTVAL INTO :NEW.FIELDID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEGENERALGROUPTITLE BEFORE INSERT
+ON HIS.BASEGENERALGROUPTITLE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEGENERALGROUPTITLE
+    SELECT HIS.S_BASEGENERALGROUPTITLE.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEGENERALLAYER BEFORE INSERT
+ON HIS.BASEGENERALLAYER FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "GLAYERID" USES SEQUENCE HIS.S_BASEGENERALLAYER
+    SELECT HIS.S_BASEGENERALLAYER.NEXTVAL INTO :NEW.GLAYERID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEGENERALSTATICDDATA BEFORE INSERT
+ON HIS.BASEGENERALSTATICDDATA FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "STATICDATAID" USES SEQUENCE HIS.S_BASEGENERALSTATICDDATA
+    SELECT HIS.S_BASEGENERALSTATICDDATA.NEXTVAL INTO :NEW.STATICDATAID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEGENERALTITLE BEFORE INSERT
+ON HIS.BASEGENERALTITLE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "TITLEID" USES SEQUENCE HIS.S_BASEGENERALTITLE
+    SELECT HIS.S_BASEGENERALTITLE.NEXTVAL INTO :NEW.TITLEID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEGROUP BEFORE INSERT
+ON HIS.BASEGROUP FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "GROUPID" USES SEQUENCE HIS.S_BASEGROUP
+    SELECT HIS.S_BASEGROUP.NEXTVAL INTO :NEW.GROUPID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEGROUPMENU BEFORE INSERT
+ON HIS.BASEGROUPMENU FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEGROUPMENU
+    SELECT HIS.S_BASEGROUPMENU.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEGROUPPAGE BEFORE INSERT
+ON HIS.BASEGROUPPAGE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEGROUPPAGE
+    SELECT HIS.S_BASEGROUPPAGE.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEGROUPUSER BEFORE INSERT
+ON HIS.BASEGROUPUSER FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEGROUPUSER
+    SELECT HIS.S_BASEGROUPUSER.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEMENU BEFORE INSERT
+ON HIS.BASEMENU FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "MENUID" USES SEQUENCE HIS.S_BASEMENU
+    SELECT HIS.S_BASEMENU.NEXTVAL INTO :NEW.MENUID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEMESSAGE BEFORE INSERT
+ON HIS.BASEMESSAGE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEMESSAGE
+    SELECT HIS.S_BASEMESSAGE.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEMESSAGEREAD BEFORE INSERT
+ON HIS.BASEMESSAGEREAD FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEMESSAGEREAD
+    SELECT HIS.S_BASEMESSAGEREAD.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEMESSAGETYPE BEFORE INSERT
+ON HIS.BASEMESSAGETYPE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEMESSAGETYPE
+    SELECT HIS.S_BASEMESSAGETYPE.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEMESSAGETYPEUSER BEFORE INSERT
+ON HIS.BASEMESSAGETYPEUSER FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEMESSAGETYPEUSER
+    SELECT HIS.S_BASEMESSAGETYPEUSER.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEMODULE BEFORE INSERT
+ON HIS.BASEMODULE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "MODULEID" USES SEQUENCE HIS.S_BASEMODULE
+    SELECT HIS.S_BASEMODULE.NEXTVAL INTO :NEW.MODULEID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEPAGEMENU BEFORE INSERT
+ON HIS.BASEPAGEMENU FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEPAGEMENU
+    SELECT HIS.S_BASEPAGEMENU.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEREPORTFIELD BEFORE INSERT
+ON HIS.BASEREPORTFIELD FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "FIELDID" USES SEQUENCE HIS.S_BASEREPORTFIELD
+    SELECT HIS.S_BASEREPORTFIELD.NEXTVAL INTO :NEW.FIELDID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEREPORTGROUPTITLE BEFORE INSERT
+ON HIS.BASEREPORTGROUPTITLE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BASEREPORTGROUPTITLE
+    SELECT HIS.S_BASEREPORTGROUPTITLE.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEREPORTLAYER BEFORE INSERT
+ON HIS.BASEREPORTLAYER FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "LAYERID" USES SEQUENCE HIS.S_BASEREPORTLAYER
+    SELECT HIS.S_BASEREPORTLAYER.NEXTVAL INTO :NEW.LAYERID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEREPORTTITLE BEFORE INSERT
+ON HIS.BASEREPORTTITLE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "TITLEID" USES SEQUENCE HIS.S_BASEREPORTTITLE
+    SELECT HIS.S_BASEREPORTTITLE.NEXTVAL INTO :NEW.TITLEID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEUSER BEFORE INSERT
+ON HIS.BASEUSER FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "USERID" USES SEQUENCE HIS.S_BASEUSER
+    SELECT HIS.S_BASEUSER.NEXTVAL INTO :NEW.USERID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BASEWORKERS BEFORE INSERT
+ON HIS.BASEWORKERS FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "WORKID" USES SEQUENCE HIS.S_BASEWORKERS
+    SELECT HIS.S_BASEWORKERS.NEXTVAL INTO :NEW.WORKID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_BOOKS BEFORE INSERT
+ON HIS.BOOKS FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_BOOKS
+    SELECT HIS.S_BOOKS.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_CLINIC_CHANNEL BEFORE INSERT
+ON HIS.CLINIC_CHANNEL FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_CLINIC_CHANNEL
+    SELECT HIS.S_CLINIC_CHANNEL.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_CLINIC_FREQUENCY BEFORE INSERT
+ON HIS.CLINIC_FREQUENCY FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_CLINIC_FREQUENCY
+    SELECT HIS.S_CLINIC_FREQUENCY.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_CLINIC_MEMO BEFORE INSERT
+ON HIS.CLINIC_MEMO FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_CLINIC_MEMO
+    SELECT HIS.S_CLINIC_MEMO.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_CLINIC_PRESCRIPTIONDETAIL BEFORE INSERT
+ON HIS.CLINIC_PRESCRIPTIONDETAIL FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_CLINIC_PRESCRIPTIONDETAIL
+    SELECT HIS.S_CLINIC_PRESCRIPTIONDETAIL.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_CLINIC_PRESCRIPTIONLIST BEFORE INSERT
+ON HIS.CLINIC_PRESCRIPTIONLIST FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_CLINIC_PRESCRIPTIONLIST
+    SELECT HIS.S_CLINIC_PRESCRIPTIONLIST.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_CLINIC_SETMEALDETAIL BEFORE INSERT
+ON HIS.CLINIC_SETMEALDETAIL FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_CLINIC_SETMEALDETAIL
+    SELECT HIS.S_CLINIC_SETMEALDETAIL.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_CLINIC_SETMEALLIST BEFORE INSERT
+ON HIS.CLINIC_SETMEALLIST FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_CLINIC_SETMEALLIST
+    SELECT HIS.S_CLINIC_SETMEALLIST.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_EMR_BIGDATA BEFORE INSERT
+ON HIS.EMR_BIGDATA FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "EMRDATAID" USES SEQUENCE HIS.S_EMR_BIGDATA
+    SELECT HIS.S_EMR_BIGDATA.NEXTVAL INTO :NEW.EMRDATAID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_EMR_CATALOGUE BEFORE INSERT
+ON HIS.EMR_CATALOGUE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_EMR_CATALOGUE
+    SELECT HIS.S_EMR_CATALOGUE.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_EMR_DOCTORLEVEL BEFORE INSERT
+ON HIS.EMR_DOCTORLEVEL FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_EMR_DOCTORLEVEL
+    SELECT HIS.S_EMR_DOCTORLEVEL.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_EMR_TEMPLATETREE BEFORE INSERT
+ON HIS.EMR_TEMPLATETREE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_EMR_TEMPLATETREE
+    SELECT HIS.S_EMR_TEMPLATETREE.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_EMR_WRITERECORD BEFORE INSERT
+ON HIS.EMR_WRITERECORD FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_EMR_WRITERECORD
+    SELECT HIS.S_EMR_WRITERECORD.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_HIS_DICTCLASS BEFORE INSERT
+ON HIS.HIS_DICTCLASS FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_HIS_DICTCLASS
+    SELECT HIS.S_HIS_DICTCLASS.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_HIS_DICTCONTENT BEFORE INSERT
+ON HIS.HIS_DICTCONTENT FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_HIS_DICTCONTENT
+    SELECT HIS.S_HIS_DICTCONTENT.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_HIS_DISEASE BEFORE INSERT
+ON HIS.HIS_DISEASE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_HIS_DISEASE
+    SELECT HIS.S_HIS_DISEASE.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
+
+
+CREATE TRIGGER HIS.TIB_HIS_PATTYPE BEFORE INSERT
+ON HIS.HIS_PATTYPE FOR EACH ROW
+DECLARE
+    INTEGRITY_ERROR  EXCEPTION;
+    ERRNO            INTEGER;
+    ERRMSG           CHAR(200);
+    DUMMY            INTEGER;
+    FOUND            BOOLEAN;
+
+BEGIN
+    --  COLUMN "ID" USES SEQUENCE HIS.S_HIS_PATTYPE
+    SELECT HIS.S_HIS_PATTYPE.NEXTVAL INTO :NEW.ID FROM DUAL;
+
+--  ERRORS HANDLING
+EXCEPTION
+    WHEN INTEGRITY_ERROR THEN
+       RAISE_APPLICATION_ERROR(ERRNO, ERRMSG);
+END;
+/
