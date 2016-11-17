@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUnitData));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BasepanelEx = new DevComponents.DotNetBar.PanelEx();
             this.dataGrid1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -39,8 +38,10 @@
             // BasepanelEx
             // 
             this.BasepanelEx.Controls.Add(this.dataGrid1);
-            this.BasepanelEx.Size = new System.Drawing.Size(492, 266);
             this.BasepanelEx.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BasepanelEx.Location = new System.Drawing.Point(0, 0);
+            this.BasepanelEx.Name = "BasepanelEx";
+            this.BasepanelEx.Size = new System.Drawing.Size(492, 266);
             this.BasepanelEx.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.BasepanelEx.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.BasepanelEx.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -48,6 +49,7 @@
             this.BasepanelEx.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
             this.BasepanelEx.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.BasepanelEx.Style.GradientAngle = 90;
+            this.BasepanelEx.TabIndex = 0;
             // 
             // dataGrid1
             // 

@@ -13,7 +13,7 @@ using DevComponents.Editors;
 using base_reportmanage.winform.IView;
 using EFWCoreLib.WinformFrame.Controller;
 using base_reportmanage.Entity;
-using grproLib;
+using gregn6Lib;
 
 namespace base_reportmanage.winform.ViewForm
 {

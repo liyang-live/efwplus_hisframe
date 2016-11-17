@@ -98,7 +98,7 @@
   <ItemGroup>
     <ProjectReference Include="..\base_businessremind\base_businessremind.csproj">
       <Project>{49633b7d-bf33-487a-be02-f4323250ed31}</Project>
-      <Name>base_businessremind %28baseproject\base_businessremind%29</Name>
+      <Name>base_businessremind</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

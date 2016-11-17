@@ -51,7 +51,7 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.axGRDisplayViewer1 = new AxgrproLib.AxGRDisplayViewer();
+            this.axGRDisplayViewer1 = new Axgregn6Lib.AxGRDisplayViewer();
             this.BasepanelEx.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -259,7 +259,7 @@
         private System.Windows.Forms.Panel panelReport; 
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private AxgrproLib.AxGRDisplayViewer axGRDisplayViewer1;
+        private Axgregn6Lib.AxGRDisplayViewer axGRDisplayViewer1;
 
     }
 }

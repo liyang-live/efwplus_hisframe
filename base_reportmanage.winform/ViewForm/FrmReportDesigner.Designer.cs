@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportDesigner));
             this.BasepanelEx = new DevComponents.DotNetBar.PanelEx();
-            this.axGRDesigner1 = new AxgrdesLib.AxGRDesigner();
+            this.axGRDesigner1 = new Axgrdes6Lib.AxGRDesigner();
             this.BasepanelEx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axGRDesigner1)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +74,7 @@
 
         #endregion
         private DevComponents.DotNetBar.PanelEx BasepanelEx;
-        private AxgrdesLib.AxGRDesigner axGRDesigner1;
+        private Axgrdes6Lib.AxGRDesigner axGRDesigner1;
 
         //private AxgrdesLib.AxGRDesigner axGRDesigner1;
     }

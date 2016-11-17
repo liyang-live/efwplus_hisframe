@@ -1640,3 +1640,358 @@ Win32 ThreadId:9472
 
 Extended Properties: 
 ----------------------------------------
+----------------------------------------
+Timestamp: 2016-11-17 02:44:28
+
+Message: HandlingInstanceID: b1d8b7f6-53bb-4020-b15b-05f6f47f453c
+An exception of type 'System.Collections.Generic.KeyNotFoundException' occurred and was caught.
+-----------------------------------------------------------------------------------------------
+11/17/2016 10:44:28
+Type : System.Collections.Generic.KeyNotFoundException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 给定关键字不在字典中。
+Source : mscorlib
+Help link : 
+Data : System.Collections.ListDictionaryInternal
+TargetSite : TValue get_Item(TKey)
+HResult : -2146232969
+Stack Trace :    在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 EFWCoreLib.CoreFrame.Init.AppPluginManage.GetPluginWinformControllerAttributeInfo(String pluginname, String name, ModulePlugin& mp)
+   在 EFWCoreLib.WinformFrame.Controller.ControllerHelper.CreateController(String controllername)
+
+Additional Info:
+
+MachineName : MS-20160805VZRB
+TimeStamp : 2016-11-17 02:44:28
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : MS-20160805VZRB\Administrator
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: MS-20160805VZRB
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 11660
+
+Process Name: D:\efwplus产品目录\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:13232
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-11-17 07:27:57
+
+Message: HandlingInstanceID: 9efe25c9-e142-4984-ba33-cb76f52924e3
+An exception of type 'System.Reflection.TargetInvocationException' occurred and was caught.
+-------------------------------------------------------------------------------------------
+11/17/2016 15:27:57
+Type : System.Reflection.TargetInvocationException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 调用的目标发生了异常。
+Source : mscorlib
+Help link : 
+Data : System.Collections.ListDictionaryInternal
+TargetSite : System.Object CreateInstance(System.RuntimeType, Boolean, Boolean, Boolean ByRef, System.RuntimeMethodHandleInternal ByRef, Boolean ByRef)
+HResult : -2146232828
+Stack Trace :    在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 EFWCoreLib.WinformFrame.Controller.ControllerHelper.CreateController(String controllername)
+
+Additional Info:
+
+MachineName : MS-20160805VZRB
+TimeStamp : 2016-11-17 07:27:57
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : MS-20160805VZRB\Administrator
+	Inner Exception
+	---------------
+	Type : System.Runtime.InteropServices.COMException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : 没有注册类 (异常来自 HRESULT:0x80040154 (REGDB_E_CLASSNOTREG))
+	Source : System.Windows.Forms
+	Help link : 
+	ErrorCode : -2147221164
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : System.Object CoCreateInstance(System.Guid ByRef, System.Object, Int32, System.Guid ByRef)
+	HResult : -2147221164
+	Stack Trace :    在 System.Windows.Forms.UnsafeNativeMethods.CoCreateInstance(Guid& clsid, Object punkOuter, Int32 context, Guid& iid)
+	   在 System.Windows.Forms.AxHost.CreateWithLicense(String license, Guid clsid)
+	   在 System.Windows.Forms.AxHost.CreateInstanceCore(Guid clsid)
+	   在 System.Windows.Forms.AxHost.CreateInstance()
+	   在 System.Windows.Forms.AxHost.GetOcxCreate()
+	   在 System.Windows.Forms.AxHost.TransitionUpTo(Int32 state)
+	   在 System.Windows.Forms.AxHost.CreateHandle()
+	   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+	   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+	   在 System.Windows.Forms.AxHost.EndInit()
+	   在 base_reportmanage.winform.ViewForm.frmShowReport.InitializeComponent() 位置 D:\efwplus产品目录\efwplus_hisframe\base_reportmanage.winform\ViewForm\frmShowReport.Designer.cs:行号 244
+	   在 base_reportmanage.winform.ViewForm.frmShowReport..ctor() 位置 D:\efwplus产品目录\efwplus_hisframe\base_reportmanage.winform\ViewForm\frmShowReport.cs:行号 24
+
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: MS-20160805VZRB
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 10796
+
+Process Name: D:\efwplus产品目录\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:5200
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-11-17 07:28:03
+
+Message: HandlingInstanceID: 1dd46a11-f969-4b6c-9fcb-db7c06612707
+An exception of type 'System.Reflection.TargetInvocationException' occurred and was caught.
+-------------------------------------------------------------------------------------------
+11/17/2016 15:28:03
+Type : System.Reflection.TargetInvocationException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 调用的目标发生了异常。
+Source : mscorlib
+Help link : 
+Data : System.Collections.ListDictionaryInternal
+TargetSite : System.Object CreateInstance(System.RuntimeType, Boolean, Boolean, Boolean ByRef, System.RuntimeMethodHandleInternal ByRef, Boolean ByRef)
+HResult : -2146232828
+Stack Trace :    在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 EFWCoreLib.WinformFrame.Controller.ControllerHelper.CreateController(String controllername)
+
+Additional Info:
+
+MachineName : MS-20160805VZRB
+TimeStamp : 2016-11-17 07:28:03
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : MS-20160805VZRB\Administrator
+	Inner Exception
+	---------------
+	Type : System.Runtime.InteropServices.COMException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : 没有注册类 (异常来自 HRESULT:0x80040154 (REGDB_E_CLASSNOTREG))
+	Source : System.Windows.Forms
+	Help link : 
+	ErrorCode : -2147221164
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : System.Object CoCreateInstance(System.Guid ByRef, System.Object, Int32, System.Guid ByRef)
+	HResult : -2147221164
+	Stack Trace :    在 System.Windows.Forms.UnsafeNativeMethods.CoCreateInstance(Guid& clsid, Object punkOuter, Int32 context, Guid& iid)
+	   在 System.Windows.Forms.AxHost.CreateWithLicense(String license, Guid clsid)
+	   在 System.Windows.Forms.AxHost.CreateInstanceCore(Guid clsid)
+	   在 System.Windows.Forms.AxHost.CreateInstance()
+	   在 System.Windows.Forms.AxHost.GetOcxCreate()
+	   在 System.Windows.Forms.AxHost.TransitionUpTo(Int32 state)
+	   在 System.Windows.Forms.AxHost.CreateHandle()
+	   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+	   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+	   在 System.Windows.Forms.AxHost.EndInit()
+	   在 base_reportmanage.winform.ViewForm.frmShowReport.InitializeComponent() 位置 D:\efwplus产品目录\efwplus_hisframe\base_reportmanage.winform\ViewForm\frmShowReport.Designer.cs:行号 244
+	   在 base_reportmanage.winform.ViewForm.frmShowReport..ctor() 位置 D:\efwplus产品目录\efwplus_hisframe\base_reportmanage.winform\ViewForm\frmShowReport.cs:行号 24
+
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: MS-20160805VZRB
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 10796
+
+Process Name: D:\efwplus产品目录\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:5200
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-11-17 07:28:12
+
+Message: HandlingInstanceID: f3c5a2e3-bd87-432c-8d6c-3a87f6eeba7f
+An exception of type 'System.Reflection.TargetInvocationException' occurred and was caught.
+-------------------------------------------------------------------------------------------
+11/17/2016 15:28:12
+Type : System.Reflection.TargetInvocationException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 调用的目标发生了异常。
+Source : mscorlib
+Help link : 
+Data : System.Collections.ListDictionaryInternal
+TargetSite : System.Object CreateInstance(System.RuntimeType, Boolean, Boolean, Boolean ByRef, System.RuntimeMethodHandleInternal ByRef, Boolean ByRef)
+HResult : -2146232828
+Stack Trace :    在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 EFWCoreLib.WinformFrame.Controller.ControllerHelper.CreateController(String controllername)
+
+Additional Info:
+
+MachineName : MS-20160805VZRB
+TimeStamp : 2016-11-17 07:28:12
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : MS-20160805VZRB\Administrator
+	Inner Exception
+	---------------
+	Type : System.Runtime.InteropServices.COMException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : 没有注册类 (异常来自 HRESULT:0x80040154 (REGDB_E_CLASSNOTREG))
+	Source : System.Windows.Forms
+	Help link : 
+	ErrorCode : -2147221164
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : System.Object CoCreateInstance(System.Guid ByRef, System.Object, Int32, System.Guid ByRef)
+	HResult : -2147221164
+	Stack Trace :    在 System.Windows.Forms.UnsafeNativeMethods.CoCreateInstance(Guid& clsid, Object punkOuter, Int32 context, Guid& iid)
+	   在 System.Windows.Forms.AxHost.CreateWithLicense(String license, Guid clsid)
+	   在 System.Windows.Forms.AxHost.CreateInstanceCore(Guid clsid)
+	   在 System.Windows.Forms.AxHost.CreateInstance()
+	   在 System.Windows.Forms.AxHost.GetOcxCreate()
+	   在 System.Windows.Forms.AxHost.TransitionUpTo(Int32 state)
+	   在 System.Windows.Forms.AxHost.CreateHandle()
+	   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+	   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+	   在 System.Windows.Forms.AxHost.EndInit()
+	   在 base_reportmanage.winform.ViewForm.frmShowReport.InitializeComponent() 位置 D:\efwplus产品目录\efwplus_hisframe\base_reportmanage.winform\ViewForm\frmShowReport.Designer.cs:行号 244
+	   在 base_reportmanage.winform.ViewForm.frmShowReport..ctor() 位置 D:\efwplus产品目录\efwplus_hisframe\base_reportmanage.winform\ViewForm\frmShowReport.cs:行号 24
+
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: MS-20160805VZRB
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 10796
+
+Process Name: D:\efwplus产品目录\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:5200
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 2016-11-17 07:45:40
+
+Message: HandlingInstanceID: b535cc89-ef7a-487b-9f21-c5ed88468264
+An exception of type 'System.Reflection.TargetInvocationException' occurred and was caught.
+-------------------------------------------------------------------------------------------
+11/17/2016 15:45:40
+Type : System.Reflection.TargetInvocationException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Message : 调用的目标发生了异常。
+Source : mscorlib
+Help link : 
+Data : System.Collections.ListDictionaryInternal
+TargetSite : System.Object InvokeMethod(System.Object, System.Object[], System.Signature, Boolean)
+HResult : -2146232828
+Stack Trace :    在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   在 EFWCoreLib.WinformFrame.Controller.WinformController.UI_ControllerEvent(String eventname, Object[] objs)
+
+Additional Info:
+
+MachineName : MS-20160805VZRB
+TimeStamp : 2016-11-17 07:45:40
+FullName : Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+AppDomainName : EFWWin.vshost.exe
+ThreadIdentity : 
+WindowsIdentity : MS-20160805VZRB\Administrator
+	Inner Exception
+	---------------
+	Type : System.InvalidOperationException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : The number of parameters does not match number of values for stored procedure.
+	Source : Microsoft.Practices.EnterpriseLibrary.Data
+	Help link : 
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : Void AssignParameters(System.Data.Common.DbCommand, System.Object[])
+	HResult : -2146233079
+	Stack Trace :    在 Microsoft.Practices.EnterpriseLibrary.Data.Database.AssignParameters(DbCommand command, Object[] parameterValues)
+	   在 Microsoft.Practices.EnterpriseLibrary.Data.Database.GetStoredProcCommand(String storedProcedureName, Object[] parameterValues)
+	   在 Microsoft.Practices.EnterpriseLibrary.Data.Database.ExecuteDataSet(String storedProcedureName, Object[] parameterValues)
+	   在 EFWCoreLib.CoreFrame.DbProvider.EntLibDb.GetDataTable(String storeProcedureName, Object[] parameters)
+	   在 base_reportmanage.winform.Controller.reportController.ExecReportResult(Int32 titleId, List`1 paramList) 位置 D:\efwplus产品目录\efwplus_hisframe\base_reportmanage.winform\Controller\reportController.cs:行号 234
+
+
+
+Category: FileLog
+
+Priority: 0
+
+EventId: 100
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: MS-20160805VZRB
+
+App Domain: EFWWin.vshost.exe
+
+ProcessId: 8928
+
+Process Name: D:\efwplus产品目录\efwplus_hisframe\Output\EFWWin.vshost.exe
+
+Thread Name: 
+
+Win32 ThreadId:6520
+
+Extended Properties: 
+----------------------------------------

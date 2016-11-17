@@ -6,10 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using grproLib;
 using DevComponents.DotNetBar;
 using EFWCoreLib.WinformFrame.Controller;
 using base_reportmanage.winform.IView;
+using gregn6Lib;
 
 namespace base_reportmanage.winform.ViewForm
 {

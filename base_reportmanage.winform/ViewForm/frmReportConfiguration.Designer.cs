@@ -68,6 +68,7 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.BasepanelEx.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -84,7 +85,7 @@
             this.BasepanelEx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BasepanelEx.Location = new System.Drawing.Point(0, 0);
             this.BasepanelEx.Name = "BasepanelEx";
-            this.BasepanelEx.Size = new System.Drawing.Size(992, 532);
+            this.BasepanelEx.Size = new System.Drawing.Size(992, 566);
             this.BasepanelEx.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.BasepanelEx.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.BasepanelEx.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -92,6 +93,7 @@
             this.BasepanelEx.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
             this.BasepanelEx.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.BasepanelEx.Style.GradientAngle = 90;
+            this.BasepanelEx.TabIndex = 1;
             // 
             // splitContainer1
             // 
@@ -148,12 +150,12 @@
             this.修改报表ToolStripMenuItem,
             this.删除报表ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 142);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 142);
             // 
             // 新建分类ToolStripMenuItem
             // 
             this.新建分类ToolStripMenuItem.Name = "新建分类ToolStripMenuItem";
-            this.新建分类ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.新建分类ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.新建分类ToolStripMenuItem.Text = "新建分类";
             this.新建分类ToolStripMenuItem.Click += new System.EventHandler(this.新建分类ToolStripMenuItem_Click);
             // 
@@ -161,7 +163,7 @@
             // 
             this.修改分类ToolStripMenuItem.Enabled = false;
             this.修改分类ToolStripMenuItem.Name = "修改分类ToolStripMenuItem";
-            this.修改分类ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.修改分类ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.修改分类ToolStripMenuItem.Text = "修改分类";
             this.修改分类ToolStripMenuItem.Click += new System.EventHandler(this.修改分类ToolStripMenuItem_Click);
             // 
@@ -169,20 +171,20 @@
             // 
             this.删除分类ToolStripMenuItem.Enabled = false;
             this.删除分类ToolStripMenuItem.Name = "删除分类ToolStripMenuItem";
-            this.删除分类ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.删除分类ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.删除分类ToolStripMenuItem.Text = "删除分类";
             this.删除分类ToolStripMenuItem.Click += new System.EventHandler(this.删除分类ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(121, 6);
             // 
             // 新建报表ToolStripMenuItem
             // 
             this.新建报表ToolStripMenuItem.Enabled = false;
             this.新建报表ToolStripMenuItem.Name = "新建报表ToolStripMenuItem";
-            this.新建报表ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.新建报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.新建报表ToolStripMenuItem.Text = "新建报表";
             this.新建报表ToolStripMenuItem.Click += new System.EventHandler(this.新建报表ToolStripMenuItem1_Click);
             // 
@@ -190,7 +192,7 @@
             // 
             this.修改报表ToolStripMenuItem.Enabled = false;
             this.修改报表ToolStripMenuItem.Name = "修改报表ToolStripMenuItem";
-            this.修改报表ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.修改报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.修改报表ToolStripMenuItem.Text = "修改报表";
             this.修改报表ToolStripMenuItem.Click += new System.EventHandler(this.修改报表ToolStripMenuItem_Click);
             // 
@@ -198,7 +200,7 @@
             // 
             this.删除报表ToolStripMenuItem.Enabled = false;
             this.删除报表ToolStripMenuItem.Name = "删除报表ToolStripMenuItem";
-            this.删除报表ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.删除报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.删除报表ToolStripMenuItem.Text = "删除报表";
             this.删除报表ToolStripMenuItem.Click += new System.EventHandler(this.删除报表ToolStripMenuItem_Click);
             // 
@@ -229,12 +231,12 @@
             this.dataGrid1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGrid1.Location = new System.Drawing.Point(0, 33);
+            this.dataGrid1.Location = new System.Drawing.Point(0, 34);
             this.dataGrid1.Name = "dataGrid1";
             this.dataGrid1.ReadOnly = true;
             this.dataGrid1.RowTemplate.Height = 23;
             this.dataGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid1.Size = new System.Drawing.Size(658, 533);
+            this.dataGrid1.Size = new System.Drawing.Size(658, 532);
             this.dataGrid1.TabIndex = 1;
             this.dataGrid1.DoubleClick += new System.EventHandler(this.dataGrid1_DoubleClick);
             // 
@@ -328,7 +330,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStrip1.Size = new System.Drawing.Size(658, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(658, 34);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -337,7 +339,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(87, 20);
+            this.toolStripButton1.Size = new System.Drawing.Size(88, 21);
             this.toolStripButton1.Text = "参数初始化";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -346,7 +348,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(75, 20);
+            this.toolStripButton2.Size = new System.Drawing.Size(76, 21);
             this.toolStripButton2.Text = "编辑参数";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
@@ -355,7 +357,7 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(51, 20);
+            this.toolStripButton3.Size = new System.Drawing.Size(52, 21);
             this.toolStripButton3.Text = "上移";
             // 
             // toolStripButton4
@@ -363,7 +365,7 @@
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(51, 20);
+            this.toolStripButton4.Size = new System.Drawing.Size(52, 21);
             this.toolStripButton4.Text = "下移";
             // 
             // toolStripButton5
@@ -371,7 +373,7 @@
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(75, 20);
+            this.toolStripButton5.Size = new System.Drawing.Size(76, 21);
             this.toolStripButton5.Text = "结果预览";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
@@ -384,11 +386,11 @@
             this.Name = "frmReportConfiguration";
             this.Text = "frmReportConfiguration";
             this.Load += new System.EventHandler(this.frmReportConfiguration_Load);
-            this.Controls.SetChildIndex(this.BasepanelEx, 0);
             this.BasepanelEx.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
